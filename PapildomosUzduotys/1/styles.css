@@ -1,0 +1,45 @@
+* {
+     margin: 0;
+}
+
+.container {
+     height: 100vh;
+     width: 100vw;
+     background-color: rgb(205, 244, 255);
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction: column;
+}
+
+.container > *:not(.circle) {
+     opacity: 50%;
+}
+
+.square,
+.circle {
+     height: 100px;
+     width: 100px;
+}
+
+.square {
+     transform: translate(0, 50px);
+     background-color: rgb(1, 1, 183);
+     z-index: 2;
+}
+
+.circle {
+     border-radius: 100%;
+     background-color: rgb(151, 2, 2);
+     z-index: 1;
+}
+
+.triangle {
+     width: 0;
+     height: 0;
+     border: 50px solid transparent;
+     border-top: 0;
+     border-bottom: 100px solid rgb(0, 102, 0);
+     transform: translate(0, -50px);
+     z-index: 2;
+}
