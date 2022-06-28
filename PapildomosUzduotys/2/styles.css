@@ -1,0 +1,40 @@
+body {
+     display: border-box;
+     margin: 0;
+     padding: 0;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     height: 100vh;
+     width: 100vw;
+     perspective: 1000px;
+}
+
+.window {
+     display: flex;
+     justify-content: center;
+     align-items: flex-end;
+     position: relative;
+     height: 10rem;
+     width: 20rem;
+     background-color: teal;
+     border: 3.25rem solid sandybrown;
+     color: wheat;
+     /* ANIMATIONS */
+     perspective: 3000rem;
+     transform-origin: top left;
+     transition: transform 2s;
+}
+
+.window:hover {
+     transform: rotateX(180deg);
+}
+
+.inner-window {
+     position: absolute;
+     background-color: red;
+     height: 10rem;
+     z-index: -1;
+     width: 20rem;
+     border: 3.25rem solid red;
+}
