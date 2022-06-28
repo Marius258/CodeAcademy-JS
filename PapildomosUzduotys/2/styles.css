@@ -23,7 +23,7 @@ body {
      /* ANIMATIONS */
      perspective: 3000rem;
      transform-origin: top left;
-     transition: transform 2s;
+     transition: transform 2s ease-in;
 }
 
 .window:hover {
