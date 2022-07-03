@@ -50,10 +50,32 @@ numOfDiceInput.addEventListener('change', () => {
      minExpectedSum()
 })
 
+expectedSumInput.addEventListener('change', () => {
+     minExpectedSum()
+     validateInputs()
+})
+
+numOfDiceInput.addEventListener('change', () => {
+     validateInputs()
+})
+
 const minExpectedSum = () => {
      const numOfDice = parseInt(numOfDiceInput.value)
      minMaxRange.textContent = `${numOfDice} - ${numOfDice * 6}`
 }
 
 // Validations *********************
-const validateInputs = () => {}
+const validateInputs = () => {
+     const numOfDice = parseInt(numOfDiceInput.value)
+     const expectedSum = parseInt(expectedSumInput.value)
+
+     const min = numOfDice
+     const max = numOfDice * 6
+     return expectedSum >= min && expectedSum <= max
+          ? enableButton(false)
+          : enableButton(true)
+}
+
+const enableButton = (value) => {
+     button.disabled = value
+}
