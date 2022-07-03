@@ -11,10 +11,17 @@
           <title>Document</title>
      </head>
      <body>
-          <label for="numOfDice">Kauliukų skaičius</label>
+          <label for="numOfDice">Kauliukų skaičius </label>
           <input type="number" name="numOfDice" id="numOfDiceInput" />
-          <label for="expectedSum">Norima suma</label>
-          <input type="number" name="expectedSum" id="expectedSumInput" />
+          <label for="expectedSum"
+               >Norima suma <span id="minMaxRange">0 - 0</span></label
+          >
+          <input
+               type="number"
+               name="expectedSum"
+               onchange="minExpectedSum()"
+               id="expectedSumInput"
+          />
           <button type="submit" id="rollDice">Mesti kauliukus</button>
           <div id="display"></div>
           <script src="app.js"></script>

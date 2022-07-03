@@ -4,6 +4,7 @@ const button = document.querySelector('#rollDice')
 const numOfDiceInput = document.querySelector('#numOfDiceInput')
 const expectedSumInput = document.querySelector('#expectedSumInput')
 const display = document.querySelector('#display')
+const minMaxRange = document.querySelector('#minMaxRange')
 
 button.addEventListener('click', () => {
      probabilityDisplay(rollDice())
@@ -37,9 +38,22 @@ const getMatchingRolls = (numOfDice, expectedSum) => {
      return matchingRolls / numOfRolls
 }
 
-// UI
+// UI *******************************************************************
 
 const probabilityDisplay = (value) => {
      const message = value * 100
      display.textContent = message + '%'
 }
+
+// sets min expected sum input
+numOfDiceInput.addEventListener('change', () => {
+     minExpectedSum()
+})
+
+const minExpectedSum = () => {
+     const numOfDice = parseInt(numOfDiceInput.value)
+     minMaxRange.textContent = `${numOfDice} - ${numOfDice * 6}`
+}
+
+// Validations *********************
+const validateInputs = () => {}

@@ -12,7 +12,7 @@
      flex-direction: column;
 }
 
-.container > *:not(.circle) {
+.container > div:not(.circle) {
      opacity: 50%;
 }
 
@@ -39,7 +39,7 @@
      height: 0;
      border: 50px solid transparent;
      border-top: 0;
-     border-bottom: 100px solid rgb(0, 102, 0);
+     border-bottom: 100px solid green;
      transform: translate(0, -50px);
      z-index: 2;
 }
