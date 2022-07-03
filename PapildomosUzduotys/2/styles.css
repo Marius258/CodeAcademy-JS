@@ -21,13 +21,13 @@ body {
      border: 3.25rem solid sandybrown;
      color: wheat;
      /* ANIMATIONS */
-     perspective: 3000rem;
-     transform-origin: top left;
+     perspective: 1000px;
+     transform-origin: center top;
      transition: transform 2s ease-in;
 }
 
 .window:hover {
-     transform: rotateX(180deg);
+     transform: rotateX(160deg);
 }
 
 .inner-window {
