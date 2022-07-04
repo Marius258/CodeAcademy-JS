@@ -1,4 +1,4 @@
-const numOfRolls = 100000000
+const numOfRolls = 1000000000
 
 const button = document.querySelector('#rollDice')
 const numOfDiceInput = document.querySelector('#numOfDiceInput')
@@ -50,15 +50,6 @@ numOfDiceInput.addEventListener('change', () => {
      minExpectedSum()
 })
 
-expectedSumInput.addEventListener('change', () => {
-     minExpectedSum()
-     validateInputs()
-})
-
-numOfDiceInput.addEventListener('change', () => {
-     validateInputs()
-})
-
 const minExpectedSum = () => {
      const numOfDice = parseInt(numOfDiceInput.value)
      minMaxRange.textContent = `${numOfDice} - ${numOfDice * 6}`
@@ -75,6 +66,15 @@ const validateInputs = () => {
           ? enableButton(false)
           : enableButton(true)
 }
+
+expectedSumInput.addEventListener('change', () => {
+     minExpectedSum()
+     validateInputs()
+})
+
+numOfDiceInput.addEventListener('change', () => {
+     validateInputs()
+})
 
 const enableButton = (value) => {
      button.disabled = value
