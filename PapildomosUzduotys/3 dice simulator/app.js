@@ -1,4 +1,4 @@
-const numOfRolls = 1000000000
+const numOfRolls = 100000000
 
 const button = document.querySelector('#rollDice')
 const numOfDiceInput = document.querySelector('#numOfDiceInput')
