@@ -52,6 +52,7 @@ const container = document.querySelector('.container')
 const display = document.createElement('ul')
 container.appendChild(display)
 
+// for some reason js thinks that null is an object xd
 const isObject = (obj) => {
      if (obj === null) {
           return false
@@ -59,14 +60,20 @@ const isObject = (obj) => {
      return typeof obj === 'object'
 }
 
-// A
+// A recursive rendering of a nested object
 const renderWithRecursion = (list, father) => {
+     // loops through every top level element in the object array
      for (let item in list) {
+          // checks if current list item is an object
           if (isObject(list[item])) {
+               // if it is then it creates a fresh ul
                const ul = document.createElement('ul')
+               // appends it to the current father element
                father.appendChild(ul)
+               // calls the function again with the object and new father element
                renderWithRecursion(list[item], ul)
           } else {
+               // adds item to current UL if its name is 'name'
                if (item === 'name') {
                     const li = document.createElement('li')
                     li.textContent = list[item]
