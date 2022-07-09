@@ -54,7 +54,7 @@ container.appendChild(display)
 
 // for some reason js thinks that null is an object xd
 const isObject = (obj) => {
-     if (obj === null) {
+     if (obj === null || JSON.stringify(obj) === '[]') {
           return false
      }
      return typeof obj === 'object'
@@ -66,14 +66,14 @@ const renderWithRecursion = (list, father) => {
      for (let item in list) {
           // checks if current list item is an object
           if (isObject(list[item])) {
-               // if it is then it creates a fresh ul
+               // if yes then it creates a fresh ul
                const ul = document.createElement('ul')
                // appends it to the current father element
                father.appendChild(ul)
-               // calls the function again with the object and new father element
+               // calls the function again with the found object and new father element
                renderWithRecursion(list[item], ul)
           } else {
-               // adds item to current UL if its name is 'name'
+               // adds item to current UL if its name === name
                if (item === 'name') {
                     const li = document.createElement('li')
                     li.textContent = list[item]
@@ -86,6 +86,6 @@ const renderWithRecursion = (list, father) => {
 renderWithRecursion(list, display)
 
 // B
-// const renderNoRecursion = (list) => {}
+const renderNoRecursion = (list) => {}
 
-// renderNoRecursion(list)
+renderNoRecursion(list)
