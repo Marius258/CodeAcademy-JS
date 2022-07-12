@@ -1,4 +1,4 @@
-const numOfRolls = 100000000
+const numOfRolls = 100000
 
 const button = document.querySelector('#rollDice')
 const numOfDiceInput = document.querySelector('#numOfDiceInput')
@@ -20,26 +20,45 @@ const rollDice = () => {
 
 // generates random sum of dice
 const getDiceSum = (numOfDice) => {
-     const max = numOfDice * 6
-     const min = numOfDice
-     return (diceSum = Math.floor(Math.random() * (max - min + 1) + min))
+     const diceArray = []
+     for (i = 0; i < numOfDice; i++) {
+          const roll = Math.floor(Math.random() * 6) + 1
+          diceArray.push(roll)
+     }
+     return diceArray.reduce((acc, curr) => acc + curr, 0)
 }
 
 //simulates the dice throw and comapres to expected sum
 const getMatchingRolls = (numOfDice, expectedSum) => {
      let matchingRolls = 0
-     for (i = 0; i < numOfRolls; i++) {
-          const diceSum = getDiceSum(numOfDice)
+     // console.log(`number of rolls: ${numOfRolls}`)
+
+     let i = 0
+     while (i !== numOfRolls) {
+          let diceSum = getDiceSum(numOfDice)
+
           if (expectedSum === diceSum) {
                matchingRolls += 1
           }
+
+          i++
      }
+
+     // why does this loop not work
+     // for(i = 0; i < numOfRolls; i++){
+     // let diceSum = getDiceSum(numOfDice)
+     // console.log(`dice sum: ${diceSum}`)
+     // console.log(`expected sum: ${expectedSum}`)
+     // console.log(`current roll: ${i + 1}`)
+     // if (expectedSum === diceSum) {
+     //      matchingRolls += 1
+     // }
+     // console.log(`matching rolls: ${matchingRolls}`)
+     // }
 
      return matchingRolls / numOfRolls
 }
-
 // UI *******************************************************************
-
 const probabilityDisplay = (value) => {
      const message = value * 100
      display.textContent = message + '%'
