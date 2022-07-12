@@ -83,12 +83,14 @@ const addChild = (item) => {
                id,
                children: [],
           }
+
           const ul = document.createElement('ul')
           const li = document.createElement('li')
           li.textContent = name
           li.setAttribute('id', id)
           ul.appendChild(li)
           item.appendChild(ul)
+          addItemEvent(id)
      }
 }
 
