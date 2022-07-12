@@ -39,6 +39,16 @@ const list = [
                                                   id: 11,
                                                   children: [],
                                              },
+                                             {
+                                                  name: 'Team 2_1_1_4_1',
+                                                  id: 12,
+                                                  children: [],
+                                             },
+                                             {
+                                                  name: 'Team 2_1_1_4_1',
+                                                  id: 13,
+                                                  children: [],
+                                             },
                                         ],
                                    },
                               ],
@@ -52,9 +62,39 @@ const container = document.querySelector('.container')
 const display = document.createElement('ul')
 container.appendChild(display)
 
+//utily functions and event listeners
+
+// add item event listeners
+const addItemEvent = (id) => {
+     const item = document.getElementById(id)
+     item.addEventListener('click', (e) => {
+          e.stopPropagation()
+          addChild(item)
+     })
+}
+
+// add item function
+const addChild = (item) => {
+     const name = prompt('Enter the name of the item you want to add:')
+     if (name.length) {
+          const id = Math.floor(Math.random() * 99999999)
+          const child = {
+               name,
+               id,
+               children: [],
+          }
+          const ul = document.createElement('ul')
+          const li = document.createElement('li')
+          li.textContent = name
+          li.setAttribute('id', id)
+          ul.appendChild(li)
+          item.appendChild(ul)
+     }
+}
+
 // for some reason js thinks that null is an object xd
 const isObject = (obj) => {
-     if (obj === null || JSON.stringify(obj) === '[]') {
+     if (obj === null) {
           return false
      }
      return typeof obj === 'object'
@@ -62,23 +102,22 @@ const isObject = (obj) => {
 
 // A recursive rendering of a nested object
 const renderWithRecursion = (list, father) => {
-     // loops through every top level element in the object array
-     for (let item in list) {
-          // checks if current list item is an object
-          if (isObject(list[item])) {
-               // if yes then it creates a fresh ul
-               const ul = document.createElement('ul')
-               // appends it to the current father element
-               father.appendChild(ul)
-               // calls the function again with the found object and new father element
-               renderWithRecursion(list[item], ul)
-          } else {
-               // adds item to current UL if its name === name
-               if (item === 'name') {
-                    const li = document.createElement('li')
-                    li.textContent = list[item]
-                    father.appendChild(li)
+     for (let i = 0; i < list.length; i++) {
+          const li = document.createElement('li')
+          li.textContent = list[i].name
+          li.setAttribute('id', list[i].id)
+
+          father.appendChild(li)
+          addItemEvent(li.id)
+
+          if (isObject(list[i].children)) {
+               if (!list[i].children.length) {
+                    renderWithRecursion(list[i].children, father)
+                    continue
                }
+               const ul = document.createElement('ul')
+               li.appendChild(ul)
+               renderWithRecursion(list[i].children, ul)
           }
      }
 }

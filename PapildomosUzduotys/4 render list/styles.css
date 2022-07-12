@@ -1,3 +1,7 @@
-/* ul:empty::before {
+/* ul:before {
      content: 'a';
 } */
+
+body {
+     font-size: 1.5rem;
+}
