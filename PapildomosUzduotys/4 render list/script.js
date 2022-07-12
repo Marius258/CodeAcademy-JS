@@ -78,11 +78,6 @@ const addChild = (item) => {
      const name = prompt('Enter the name of the item you want to add:')
      if (name.length) {
           const id = Math.floor(Math.random() * 99999999)
-          const child = {
-               name,
-               id,
-               children: [],
-          }
 
           const ul = document.createElement('ul')
           const li = document.createElement('li')
