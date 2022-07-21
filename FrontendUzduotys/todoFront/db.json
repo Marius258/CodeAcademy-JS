@@ -1,12 +1,3 @@
 {
-  "toDos": [
-    {
-      "task": "asd",
-      "id": 1
-    },
-    {
-      "task": "asdasdadada",
-      "id": 2
-    }
-  ]
+  "toDos": []
 }
