@@ -128,10 +128,23 @@ body {
 .todo-item h3 {
      overflow-wrap: break-word;
      width: 80%;
+     padding-left: 2rem;
 }
 
 .completed {
      text-decoration: line-through;
+     margin-left: -2rem;
+}
+
+.completed::before {
+     background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3b/Eo_circle_green_checkmark.svg/1200px-Eo_circle_green_checkmark.svg.png');
+     background-size: 1rem 1rem;
+     background-repeat: no-repeat;
+     padding-left: 1rem;
+     display: inline-block;
+     width: 1rem;
+     height: 1rem;
+     content: '';
 }
 
 .icon-container :first-child {
@@ -210,8 +223,4 @@ body {
 .edit-inputs label {
      margin-left: 3rem;
      text-align: left;
-}
-
-.enable-message {
-     display: block;
 }
