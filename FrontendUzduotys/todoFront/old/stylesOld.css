@@ -1,0 +1,173 @@
+:root {
+     --color-main: black;
+     --color-secondary: #701a75;
+     --main-bg-color: #d4d4d8;
+     --secondary-bg-color: #fff;
+     --border-radius: 5px;
+     --status-color: red;
+}
+
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
+     height: 100vh;
+     background-color: var(--main-bg-color);
+     font-family: 'Gantari', sans-serif;
+}
+
+.header {
+     height: 10vh;
+     background-color: var(--secondary-bg-color);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding: 2rem;
+}
+
+.header h1 span {
+     color: var(--color-secondary);
+}
+
+.nav {
+     display: flex;
+     gap: 2rem;
+     color: var(--color-secondary);
+}
+
+.main-container {
+     height: 90vh;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     flex-direction: column;
+}
+
+.form {
+     flex-direction: column;
+}
+
+.card {
+     background-color: var(--secondary-bg-color);
+     padding-block: 5rem;
+     padding-inline: 2rem;
+     width: 40vw;
+     display: flex;
+     border-radius: var(--border-radius);
+     margin-bottom: 3rem;
+}
+
+.card > h2 {
+     align-self: center;
+     margin-bottom: 2rem;
+}
+
+.inputs {
+     display: flex;
+}
+.inputs > * {
+     height: 3rem;
+     padding: 1rem;
+}
+
+.inputs > input {
+     flex-grow: 3;
+}
+
+.inputs > button {
+     flex-grow: 1;
+     background-color: var(--color-secondary);
+     color: white;
+     font-weight: 600;
+}
+
+.message {
+     color: var(--status-color);
+}
+
+.list {
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+}
+
+.list-item {
+     justify-content: space-between;
+     padding-block: 3rem;
+}
+
+.list-item > div {
+     display: flex;
+     gap: 2rem;
+}
+
+.fa-pen-to-square {
+     color: green;
+}
+
+.fa-trash {
+     color: red;
+}
+
+.crossed-out {
+     text-decoration: line-through;
+}
+/* .completed::before {
+     position: absolute;
+     transform: translate(-40px);
+     content: 'X';
+} */
+
+.fa-check {
+     position: absolute;
+     transform: translate(-20px);
+     color: green;
+}
+
+.edit-inputs {
+     display: flex;
+     flex-direction: column;
+     gap: 1.5rem;
+}
+
+.edit-inputs > div {
+     display: flex;
+}
+.edit-inputs > div > :first-child {
+     width: 150px;
+}
+
+.edit-inputs > div > :nth-child(2) {
+     flex-grow: 2;
+}
+.edit-button {
+     margin-top: 2rem;
+}
+.edit-message {
+     align-self: center;
+}
+
+.name-input {
+     border-radius: var(--border-radius);
+     padding-block: 0.5rem;
+     padding-inline: 1.125rem;
+}
+/* .edit-inputs h4,
+.edit-inputs label {
+     flex-grow: 1;
+}
+
+.edit-inputs input {
+     flex-grow: 5;
+}
+
+.edit-inputs > * {
+     flex-basis: 50%;
+}
+
+.edit-inputs > * {
+     margin-top: 1rem;
+} */

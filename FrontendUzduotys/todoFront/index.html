@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <meta
+               name="viewport"
+               content="width=device-width, initial-scale=1.0"
+          />
+          <!-- CDNS -->
+
+          <link
+               rel="stylesheet"
+               href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+               integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+               crossorigin="anonymous"
+               referrerpolicy="no-referrer"
+          />
+          <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link
+               href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+               rel="stylesheet"
+          />
+          <!-- /CDNS -->
+          <link rel="stylesheet" href="styles.css" />
+          <script src="app.js" defer></script>
+          <title>ToDo app</title>
+     </head>
+     <body>
+          <div class="container">
+               <header class="header">
+                    <h1>Best <span>ToDo</span> App</h1>
+                    <div class="social-links">
+                         <i class="fa-brands fa-facebook"></i>
+                         <i class="fa-brands fa-twitter"></i>
+                         <i class="fa-brands fa-linkedin"></i>
+                    </div>
+               </header>
+               <main class="main-container">
+                    <form action="" class="card add-form" id="addTaskForm">
+                         <h2>Your Tasks</h2>
+                         <div class="add-form-inputs">
+                              <input
+                                   type="text"
+                                   name="task"
+                                   placeholder="e.g. wash dishes"
+                              />
+                              <button class="button" type="submit">Add</button>
+                         </div>
+                    </form>
+                    <div class="list-item" id="itemList"></div>
+
+                    <!-- modal-disable -->
+                    <div class="modal modal-disable" id="modal">
+                         <div class="modal-content card add-form">
+                              <form
+                                   action=""
+                                   class="edit-task-form"
+                                   id="editTaskForm"
+                              >
+                                   <h2>Edit Task</h2>
+                                   <div class="edit-inputs">
+                                        <label for="taskID">Task ID:</label>
+                                        <input
+                                             type="number"
+                                             id="taskId"
+                                             disabled
+                                        />
+
+                                        <label for="task">Name:</label>
+                                        <input
+                                             type="text"
+                                             name="task"
+                                             id="task"
+                                        />
+
+                                        <label for="completed"
+                                             >Completed:</label
+                                        >
+                                        <input
+                                             type="checkbox"
+                                             name="completed"
+                                             id="completed"
+                                             value="true"
+                                        />
+                                   </div>
+
+                                   <button type="submit" class="button">
+                                        Edit
+                                   </button>
+                              </form>
+                         </div>
+                    </div>
+               </main>
+          </div>
+     </body>
+</html>
