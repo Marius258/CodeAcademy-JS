@@ -3,7 +3,7 @@ const container = document.querySelector('#itemList')
 
 const getData = async () => {
      const data = await fetch(
-          'http://localhost:3000/todos?_sort=completed&_order=asc'
+          'http://localhost:3000/todos?_sort=completed&_order=desc'
      )
      return data.json()
 }
