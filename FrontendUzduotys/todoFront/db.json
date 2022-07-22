@@ -1,22 +1,3 @@
 {
-  "toDos": [
-    {
-      "task": "3",
-      "completed": "true",
-      "id": 1
-    },
-    {
-      "task": "antras",
-      "id": 2
-    },
-    {
-      "task": "pirmas",
-      "completed": "true",
-      "id": 3
-    },
-    {
-      "task": "asdas",
-      "id": 4
-    }
-  ]
+  "toDos": []
 }
