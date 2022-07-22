@@ -83,15 +83,19 @@ editTaskForm.addEventListener('submit', async (e) => {
      e.preventDefault()
 
      const formData = new FormData(editTaskForm)
-     const taskId = document.querySelector('#taskId')
-     console.log(taskId.value)
-     //  const id = taskId.textContent
-     const payload = new URLSearchParams(formData)
+     if (formData.get('task')) {
+          const taskId = document.querySelector('#taskId')
+          console.log(taskId.value)
+          //  const id = taskId.textContent
+          const payload = new URLSearchParams(formData)
 
-     await fetch(`http://localhost:3000/todos/${taskId.value}`, {
-          method: 'PUT',
-          body: payload,
-     })
+          await fetch(`http://localhost:3000/todos/${taskId.value}`, {
+               method: 'PUT',
+               body: payload,
+          })
+     } else {
+          showError(editTaskForm)
+     }
 })
 
 //edit modal
@@ -123,11 +127,13 @@ const populateModal = ({ id, task, completed }) => {
 // utils
 
 const showError = (parentElement) => {
-     const message = 'Please enter a task'
-     const h4 = document.createElement('h4')
-     h4.textContent = message
-     h4.style.color = 'red'
+     const children = Array.from(parentElement.children)
 
-     parentElement.appendChild(h4)
-     //todo
+     const child = children.find((element) => {
+          if (element.classList.contains('message')) {
+               return element
+          }
+     })
+
+     child.classList.add('active')
 }

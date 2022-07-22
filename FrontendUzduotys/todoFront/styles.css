@@ -71,6 +71,15 @@ body {
      background-color: #4b44c6;
 }
 
+.message {
+     color: red;
+     opacity: 0;
+}
+
+.active {
+     opacity: 100;
+}
+
 /* MAIN FORM*/
 
 .main-container {
