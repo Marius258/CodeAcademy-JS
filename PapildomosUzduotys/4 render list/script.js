@@ -40,12 +40,12 @@ const list = [
                                                   children: [],
                                              },
                                              {
-                                                  name: 'Team 2_1_1_4_1',
+                                                  name: 'Team 2_1_1_4_2',
                                                   id: 12,
                                                   children: [],
                                              },
                                              {
-                                                  name: 'Team 2_1_1_4_1',
+                                                  name: 'Team 2_1_1_4_3',
                                                   id: 13,
                                                   children: [],
                                              },
@@ -58,9 +58,6 @@ const list = [
           ],
      },
 ]
-const container = document.querySelector('.container')
-const display = document.createElement('ul')
-container.appendChild(display)
 
 //utily functions and event listeners
 
@@ -90,14 +87,24 @@ const addChild = (item) => {
 }
 
 // for some reason js thinks that null is an object xd
-const isObject = (obj) => {
-     if (obj === null) {
+const hasChildren = (obj) => {
+     if (
+          obj === null ||
+          obj === undefined ||
+          (Array.isArray(obj) && !obj.length)
+     ) {
           return false
      }
      return typeof obj === 'object'
 }
 
-// A recursive rendering of a nested object
+// console.log(hasChildren([]))
+
+// A recursive rendering
+const containerRecursion = document.querySelector('.container-recursion')
+const displayRecursion = document.createElement('ul')
+containerRecursion.appendChild(displayRecursion)
+
 const renderWithRecursion = (list, father) => {
      for (let i = 0; i < list.length; i++) {
           const li = document.createElement('li')
@@ -107,8 +114,9 @@ const renderWithRecursion = (list, father) => {
           father.appendChild(li)
           addItemEvent(li.id)
 
-          if (isObject(list[i].children)) {
+          if (hasChildren(list[i].children)) {
                if (!list[i].children.length) {
+                    console.log('dab')
                     renderWithRecursion(list[i].children, father)
                     continue
                }
@@ -119,9 +127,51 @@ const renderWithRecursion = (list, father) => {
      }
 }
 
-renderWithRecursion(list, display)
+renderWithRecursion(list, displayRecursion)
 
-// B
-const renderNoRecursion = (list) => {}
+// B iterative rendering
 
-renderNoRecursion(list)
+const container = document.querySelector('.container-stack')
+const displayStack = document.createElement('ul')
+container.appendChild(displayStack)
+
+const renderWithNoRecursion = (list, father) => {
+     const stack = []
+     const fatherStack = []
+
+     for (let i = 0; i < list.length; i++) {
+          stack.push(list[i])
+          fatherStack.push(father)
+
+          while (stack.length > 0) {
+               let current = stack.pop()
+               let currentFather = fatherStack[fatherStack.length - 1]
+
+               const li = document.createElement('li')
+               li.textContent = current.name
+               li.setAttribute('id', parseInt(current.id) + 100)
+
+               if (!hasChildren(current.children)) {
+                    currentFather.appendChild(li)
+                    addItemEvent(li.id)
+
+                    fatherStack.pop()
+                    continue
+               }
+
+               if (hasChildren(current.children)) {
+                    const ul = document.createElement('ul')
+
+                    currentFather.appendChild(li)
+                    li.appendChild(ul)
+
+                    for (let i = current.children.length - 1; i >= 0; i--) {
+                         stack.push(current.children[i])
+                         fatherStack.push(ul)
+                    }
+               }
+          }
+     }
+}
+
+renderWithNoRecursion(list, displayStack)
