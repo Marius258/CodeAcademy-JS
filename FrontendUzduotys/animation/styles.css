@@ -1,0 +1,76 @@
+/* 1. Padaryti grazu pereijima is geltonos i zydra. */
+@keyframes changeColor {
+     /* from {
+          background-color: aqua;
+     }
+     to {
+          background-color: yellow;
+     } */
+
+     50% {
+          background-color: yellow;
+     }
+}
+
+body {
+     height: 100vh;
+}
+
+#container {
+     width: 200px;
+     height: 100px;
+     background-color: aqua;
+     animation-name: changeColor;
+     animation-duration: 4s;
+     animation-iteration-count: infinite;
+}
+
+/* 2. Uzimtu visa auksti */
+@keyframes changeColor2 {
+     from {
+          flex: 0;
+     }
+     to {
+          flex: 1;
+     }
+}
+
+@keyframes fullHeight {
+     from {
+          height: 5%;
+     }
+     to {
+          height: 100%;
+     }
+}
+
+#container2 {
+     display: flex;
+     flex-direction: row;
+     background-color: aqua;
+
+     animation-name: fullHeight;
+     animation-duration: 4s;
+     animation-iteration-count: infinite;
+}
+
+#container2 div {
+     animation-name: changeColor2;
+     animation-duration: 4s;
+     animation-iteration-count: infinite;
+     /* outline: 1px solid red; */
+
+     /*  */
+     font-size: 3rem;
+     /*  */
+}
+
+/* #container2 {
+     animation: mymove 4s infinite ease-in;
+} */
+
+/* @keyframes mymove {
+     50% {
+          box-shadow: 15px 15px 20px rgb(73, 188, 159);
+     }
+} */
