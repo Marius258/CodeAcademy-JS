@@ -16,6 +16,11 @@ const renderTodoList = async () => {
           const article = document.createElement('article')
           article.classList.add('card', 'todo-item')
 
+          if (localStorage.getItem('justAdded') === 'true') {
+               container.classList.add('add-animation')
+               localStorage.clear()
+          }
+
           const taskName = document.createElement('h3')
           if (element.completed) {
                taskName.classList.add('completed')
@@ -44,7 +49,6 @@ const renderTodoList = async () => {
           container.appendChild(article)
      })
 }
-window.onload = renderTodoList
 
 // add new TODO
 const addTaskForm = document.querySelector('#addTaskForm')
@@ -55,6 +59,8 @@ addTaskForm.addEventListener('submit', async (e) => {
      //  formData.append('completed', 'false')
      if (formData.get('task')) {
           const payload = new URLSearchParams(formData)
+
+          localStorage.setItem('justAdded', 'true')
 
           await fetch(`http://localhost:3000/todos`, {
                method: 'POST',
@@ -107,7 +113,7 @@ modal.addEventListener('click', (e) => {
      }
 })
 
-window.onclick = function (event) {}
+// window.onclick = function (event) {}
 
 const showEditModal = () => {
      modal.classList.remove('modal-disable')
@@ -137,3 +143,5 @@ const showError = (parentElement) => {
 
      child.classList.add('active')
 }
+
+window.onload = renderTodoList
