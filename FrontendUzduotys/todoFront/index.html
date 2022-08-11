@@ -32,9 +32,14 @@
                <header class="header">
                     <h1>Best <span>ToDo</span> App</h1>
                     <div class="social-links">
-                         <i class="fa-brands fa-facebook"></i>
-                         <i class="fa-brands fa-twitter"></i>
-                         <i class="fa-brands fa-linkedin"></i>
+                         <button aria-label="link to facebook">
+                              <i class="fa-brands fa-facebook"></i>
+                         </button>
+                         <button aria-label="link to twitter">
+                              <i class="fa-brands fa-twitter"></i></button
+                         ><button aria-label="link to linkedin">
+                              <i class="fa-brands fa-linkedin"></i>
+                         </button>
                     </div>
                </header>
                <main class="main-container">
@@ -84,10 +89,11 @@
                                              name="completed"
                                              id="completed"
                                              value="true"
+                                             aria-label="check if you completed the task"
                                         />
                                    </div>
 
-                                   <button type="submit" class="button">
+                                   <button type="submit" class="button" aria-label="save edited task"">
                                         Edit
                                    </button>
                                    <div class="message">
