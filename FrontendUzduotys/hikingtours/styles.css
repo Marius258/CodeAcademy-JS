@@ -1,7 +1,7 @@
 :root {
      --main-bg-color: hsl(0, 0%, 100%);
      --secodary-bg-color: hsl(243, 100%, 68%);
-     --main-text-color: hsl(0, 0%, 0%);
+     --main-text-color: hsl(0, 0%, 9%);
      --secondary-text-color: hsl(0, 0%, 100%);
      --accent-text-color: hsl(243, 100%, 68%);
      --accent-bg-color: hsl(195, 40%, 98%);
@@ -148,6 +148,7 @@ body {
 .service-icon {
      background-color: var(--accent-text-color);
      font-size: 2.5rem;
+     width: 4rem;
      padding: 1rem;
 }
 /* //OUR SERVICES */
@@ -198,3 +199,106 @@ body {
 }
 
 /* //FEATURED TOURS */
+
+/* OUR GALLERY */
+
+.our-gallery {
+     display: flex;
+     flex-direction: column;
+     background-color: var(--accent-bg-color);
+     padding-block: 4rem;
+     font-size: 1.125rem;
+}
+
+.our-gallery h2 {
+     font-size: 2.5rem;
+}
+
+.gallery-images {
+     display: flex;
+     flex-direction: column;
+     gap: 0.5rem;
+     background-color: var(--secodary-bg-color);
+}
+
+/* // OUR GALLERY */
+
+/* NEWSLETTER */
+
+.newsletter {
+     background-color: var(--secodary-bg-color);
+     color: var(--secondary-text-color);
+     display: flex;
+     padding-inline: 1rem;
+     padding-block: 4rem;
+     font-size: 1.125rem;
+}
+
+.newsletter h2 {
+     text-align: center;
+     line-height: 200%;
+     font-size: 2.5rem;
+}
+
+.email-input {
+     display: flex;
+     align-items: center;
+     justify-content: center;
+}
+
+.email-input button {
+     background-color: var(--accent-bg-color);
+}
+
+.email-input input,
+.email-input button {
+     display: inline-block;
+     border-radius: none;
+     border: none;
+     padding: 1rem;
+     text-transform: uppercase;
+     color: var(--main-text-color);
+}
+
+.email-input input::placeholder {
+     color: var(--main-text-color);
+}
+
+/* //NEWSLETTER */
+
+/* FOOTER */
+
+.footer {
+     background-color: var(--main-text-color);
+     color: var(--secondary-text-color);
+     padding-inline: 5rem;
+     display: flex;
+     align-items: center;
+     flex-direction: column;
+     gap: 2rem;
+     font-size: 1.5rem;
+     text-transform: capitalize;
+}
+
+.footer ul {
+     display: flex;
+     gap: 1.5rem;
+}
+
+.footer ul > li {
+     list-style: none;
+}
+
+.footer ul > li > a {
+     text-decoration: none;
+     color: var(--secondary-text-color);
+     /* font-size: 1.5remrem; */
+}
+
+.social-links {
+     font-size: 2.5rem;
+     display: flex;
+     justify-content: center;
+     gap: 1.5rem;
+}
+/* //FOOTER */
