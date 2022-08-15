@@ -55,6 +55,35 @@ body {
      text-decoration: none;
      font-size: 1.25rem;
      font-weight: 600;
+     transition: 0.2s ease-in;
+}
+
+.link-sm:hover {
+     transform: scale(1.1);
+}
+
+.button {
+     cursor: pointer;
+     text-transform: capitalize;
+     transition: 0.2s ease-in;
+}
+
+.button:hover {
+     filter: brightness(0.85);
+}
+
+.social-links {
+     font-size: 2.5rem;
+     display: flex;
+     justify-content: center;
+     gap: 1.5rem;
+}
+
+.social-links > * {
+     transition: 0.2s ease-in;
+}
+.social-links > *:hover {
+     transform: scale(1.1);
 }
 
 /* // UTILITY CLASSES */
@@ -104,17 +133,19 @@ body {
      text-align: center;
 }
 
-.hero button {
-     text-transform: capitalize;
-     cursor: pointer;
+.hero .button {
      font-weight: 600;
      letter-spacing: 0.2rem;
-
      background-color: var(--main-bg-color);
      font-size: 1.25rem;
      padding-inline: 1rem;
      padding-block: 0.725rem;
      border-radius: 5px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.hero .button:hover {
+     transform: scale(1.1);
 }
 
 /* // HERO SECTION */
@@ -261,7 +292,7 @@ body {
      justify-content: center;
 }
 
-.email-input button {
+.email-input .button {
      background-color: var(--accent-bg-color);
 }
 
@@ -271,12 +302,12 @@ body {
      border-radius: none;
      border: none;
      padding: 1rem;
-     text-transform: uppercase;
      color: var(--main-text-color);
 }
 
 .email-input input::placeholder {
      color: var(--main-text-color);
+     text-transform: uppercase;
 }
 
 /* //NEWSLETTER */
@@ -295,25 +326,23 @@ body {
      text-transform: capitalize;
 }
 
-.footer ul {
+.footer-links {
      display: flex;
      gap: 1.5rem;
 }
 
-.footer ul > li {
+.footer-links > li {
      list-style: none;
+     transition: 0.2s ease-in;
 }
 
-.footer ul > li > a {
+.footer-links > li:hover {
+     transform: scale(1.1);
+}
+
+.footer-links > li > a {
      text-decoration: none;
      color: var(--secondary-text-color);
-     /* font-size: 1.5remrem; */
 }
 
-.social-links {
-     font-size: 2.5rem;
-     display: flex;
-     justify-content: center;
-     gap: 1.5rem;
-}
 /* //FOOTER */
