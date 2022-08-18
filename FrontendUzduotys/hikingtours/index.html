@@ -37,6 +37,14 @@
                <header class="header">
                     <h2>Hiking <span>Tours</span></h2>
 
+                    <ul role="navigation" class="links">
+                         <li><a href="#">home</a></li>
+                         <li><a href="#">about</a></li>
+                         <li><a href="#">services</a></li>
+                         <li><a href="#">featured</a></li>
+                         <li><a href="#">gallery</a></li>
+                    </ul>
+
                     <nav class="social-links">
                          <a href="#" aria-label="link to hiking tours facebook"
                               ><i class="fa-brands fa-facebook"></i
@@ -65,23 +73,30 @@
                <!-- ABOUT US -->
                <section class="section about-us">
                     <h2 class="title">about <span>us</span></h2>
-                    <img
-                         class="image"
-                         src="https://images.unsplash.com/photo-1476611338391-6f395a0ebc7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
-                         alt="picture of people hiking"
-                    />
-                    <h3 class="text-lg">explore the difference</h3>
-                    <p class="paragraph">
-                         Lorem ipsum dolor, sit amet consectetur adipisicing
-                         elit. Dicta vero ab totam magni eum illum nostrum nobis
-                         optio quae fuga?
-                    </p>
-                    <p class="paragraph">
-                         Lorem ipsum dolor, sit amet consectetur adipisicing
-                         elit. Dicta vero ab totam magni eum illum nostrum nobis
-                         optio quae fuga?
-                    </p>
-                    <a class="link-sm" href="#">read more</a>
+                    <div class="about-us-content">
+                         <div class="img-container">
+                              <img
+                                   class="image"
+                                   src="https://images.unsplash.com/photo-1476611338391-6f395a0ebc7b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80"
+                                   alt="picture of people hiking"
+                              />
+                         </div>
+
+                         <article>
+                              <h3 class="text-lg">explore the difference</h3>
+                              <p class="paragraph">
+                                   Lorem ipsum dolor, sit amet consectetur
+                                   adipisicing elit. Dicta vero ab totam magni
+                                   eum illum nostrum nobis optio quae fuga?
+                              </p>
+                              <p class="paragraph">
+                                   Lorem ipsum dolor, sit amet consectetur
+                                   adipisicing elit. Dicta vero ab totam magni
+                                   eum illum nostrum nobis optio quae fuga?
+                              </p>
+                              <a class="link-sm" href="#">read more</a>
+                         </article>
+                    </div>
                </section>
                <!--// ABOUT US -->
 
@@ -201,6 +216,32 @@
                                    </div>
                               </div>
                          </div>
+
+                         <div class="card hidden">
+                              <div
+                                   class="card-image"
+                                   data-date="august 1th, 2022"
+                              >
+                                   <img
+                                        class="image"
+                                        src="https://images.unsplash.com/photo-1594973782943-3314fe063f68?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
+                                        alt="picture of hong kong skyline at night"
+                                   />
+                              </div>
+
+                              <div class="card-info">
+                                   <h4 class="card-title">explore hong kong</h4>
+
+                                   <h5 class="card-country">
+                                        <i class="fa-solid fa-earth-asia"></i>
+                                        hong kong
+                                   </h5>
+                                   <div class="card-price">
+                                        <h5>12 days</h5>
+                                        <h5>from $3100</h5>
+                                   </div>
+                              </div>
+                         </div>
                     </div>
                     <a class="link-sm" href="#">all tours</a>
                </section>
@@ -208,8 +249,8 @@
                <!-- //FEATURED TOURS -->
 
                <!-- OUR GALLERY -->
-               <section class="our-gallery">
-                    <h2 class="title">featured <span>tours</span></h2>
+               <section class="section our-gallery">
+                    <h2 class="title">our <span>gallery</span></h2>
 
                     <div class="gallery-images">
                          <img
@@ -219,7 +260,7 @@
                          />
                          <img
                               class="image"
-                              src="https://images.unsplash.com/photo-1501854140801-50d01698950b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=975&q=80"
+                              src="https://images.unsplash.com/uploads/141148589884100082977/a816dbd7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80"
                               alt="picture of big green hills"
                          />
                          <img
@@ -238,7 +279,7 @@
                <!-- // OUR GALLERY -->
 
                <!-- NEWSLETTER -->
-               <section class="newsletter">
+               <section class="section newsletter">
                     <div class="newsletter-text">
                          <h2 class="title">
                               want latest tour info and updates?
@@ -258,7 +299,7 @@
 
                <!-- FOOTER -->
                <footer class="footer section">
-                    <ul role="navigation" class="footer-links">
+                    <ul role="navigation" class="links">
                          <li><a href="#">home</a></li>
                          <li><a href="#">about</a></li>
                          <li><a href="#">services</a></li>
