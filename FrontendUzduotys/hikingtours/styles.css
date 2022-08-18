@@ -382,11 +382,12 @@ body {
 @media only screen and (min-width: 1000px) {
      /* temp */
 
-     .hidden {
-          display: block;
+     .header .hidden {
+          display: flex;
      }
 
-     .header .links a {
+     .header .links a,
+     .featured-tours .hidden {
           display: block;
      }
 
