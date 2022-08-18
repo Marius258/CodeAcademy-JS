@@ -11,14 +11,17 @@ body {
      font-family: 'Roboto', sans-serif;
 }
 
+* {
+     box-sizing: border-box;
+}
+
 /* UTILITY CLASSES */
 
 .title {
      text-transform: uppercase;
      letter-spacing: 0.4rem;
      align-self: center;
-     /* text-align: center; */
-     margin-bottom: 4rem;
+     padding-bottom: 4rem;
 }
 
 .text-lg {
@@ -31,12 +34,19 @@ body {
      width: 100%;
 }
 
+.img-container {
+     width: 100%;
+}
+
 .title > span {
      color: var(--accent-text-color);
 }
 
 .section {
+     /* padding-inline: max(10vw, 4rem);
+     padding-block: max(5vw, 2rem); */
      padding: 4rem;
+
      font-size: 1.125rem;
 }
 .section h2 {
@@ -44,8 +54,8 @@ body {
 }
 
 .paragraph {
-     letter-spacing: 0.1rem;
-     line-height: 150%;
+     letter-spacing: 0.07rem;
+     line-height: 120%;
      font-size: 1.3rem;
 }
 
@@ -86,6 +96,26 @@ body {
      transform: scale(1.1);
 }
 
+.links {
+     display: flex;
+     gap: 1.5rem;
+     text-transform: capitalize;
+     padding: 0;
+}
+
+.links > li {
+     list-style: none;
+     transition: 0.2s ease-in;
+}
+
+.links > li:hover {
+     transform: scale(1.1);
+}
+
+.hidden {
+     display: none;
+}
+
 /* // UTILITY CLASSES */
 
 /* HEADER STYLES */
@@ -97,6 +127,11 @@ body {
      font-size: 1.5rem;
      color: var(--main-text-color);
      background-color: var(--main-bg-color);
+     height: 10vh;
+}
+
+.hero-bg-img {
+     display: none;
 }
 
 .header > h2 > span {
@@ -107,6 +142,13 @@ body {
      font-size: 1.725rem;
      display: flex;
      gap: 1.25rem;
+}
+
+.header .links a {
+     display: none;
+     text-decoration: none;
+     color: var(--main-text-color);
+     font-weight: 600;
 }
 
 .fa-brands {
@@ -123,10 +165,12 @@ body {
      align-items: center;
      justify-content: center;
      gap: 2rem;
-     padding-block: 10rem;
+     height: 90vh;
 
      color: var(--secondary-text-color);
      background-color: var(--secodary-bg-color);
+
+     position: relative;
 }
 
 .hero p {
@@ -157,10 +201,6 @@ body {
      align-items: flex-start;
 }
 
-.about-us .image {
-     margin-bottom: 3rem;
-}
-
 /* // ABOUT SECTION */
 
 /* OUR SERVICES */
@@ -168,13 +208,16 @@ body {
      display: flex;
      flex-direction: column;
      background-color: var(--accent-bg-color);
+
+     box-shadow: 0 0 0 100vmax var(--accent-bg-color);
+     clip-path: inset(0 -100vmax);
 }
 
 .services {
      display: grid;
-     grid-template-columns: 1fr 1fr;
+     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
      text-align: center;
-     row-gap: 4rem;
+     gap: 4rem;
 }
 .service-icon {
      background-color: var(--accent-text-color);
@@ -191,6 +234,7 @@ body {
 }
 .card {
      box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+     cursor: pointer;
 }
 
 .card-image {
@@ -212,8 +256,7 @@ body {
 }
 
 .tour-cards {
-     display: flex;
-     flex-direction: column;
+     display: grid;
      gap: 4rem;
 }
 
@@ -249,10 +292,11 @@ body {
 
 .our-gallery {
      display: flex;
+     align-items: center;
      flex-direction: column;
+     grid-template-columns: 1fr;
      background-color: var(--accent-bg-color);
-     padding-top: 4rem;
-     font-size: 1.125rem;
+     padding-inline: 0;
 }
 
 .our-gallery h2 {
@@ -260,8 +304,8 @@ body {
 }
 
 .gallery-images {
-     display: flex;
-     flex-direction: column;
+     display: grid;
+     grid-template-columns: 1fr;
      gap: 0.5rem;
      background-color: var(--secodary-bg-color);
      position: relative;
@@ -275,9 +319,6 @@ body {
      background-color: var(--secodary-bg-color);
      color: var(--secondary-text-color);
      display: flex;
-     padding-inline: 1rem;
-     padding-block: 4rem;
-     font-size: 1.125rem;
 }
 
 .newsletter h2 {
@@ -290,6 +331,7 @@ body {
      display: flex;
      align-items: center;
      justify-content: center;
+     width: 80%;
 }
 
 .email-input .button {
@@ -303,6 +345,10 @@ body {
      border: none;
      padding: 1rem;
      color: var(--main-text-color);
+}
+
+.email-input input {
+     width: 60%;
 }
 
 .email-input input::placeholder {
@@ -326,23 +372,106 @@ body {
      text-transform: capitalize;
 }
 
-.footer-links {
-     display: flex;
-     gap: 1.5rem;
-}
-
-.footer-links > li {
-     list-style: none;
-     transition: 0.2s ease-in;
-}
-
-.footer-links > li:hover {
-     transform: scale(1.1);
-}
-
-.footer-links > li > a {
+.footer .links > li > a {
      text-decoration: none;
      color: var(--secondary-text-color);
 }
 
 /* //FOOTER */
+
+@media only screen and (min-width: 1000px) {
+     /* temp */
+
+     .hidden {
+          display: block;
+     }
+
+     .header .links a {
+          display: block;
+     }
+
+     .hero {
+          --bg-image: url('https://images.unsplash.com/photo-1511715885542-a3713331633d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80');
+          --bg-image-opacity: 0.3;
+          position: relative;
+          background: rgb(0, 0, 0);
+          background: linear-gradient(
+               0deg,
+               rgba(0, 0, 0, 1) 0%,
+               rgba(100, 92, 255, 1) 100%
+          );
+          gap: 4rem;
+          isolation: isolate;
+     }
+
+     .hero:after {
+          content: '';
+          background-image: var(--bg-image);
+          background-size: cover;
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          inset: 0;
+          z-index: -1;
+          opacity: var(--bg-image-opacity);
+     }
+
+     .hero .title {
+          font-size: 5rem;
+     }
+
+     .about-us {
+          margin: 0 auto;
+          width: 80vw;
+     }
+
+     .our-services {
+          margin: 0 auto;
+          width: 80vw;
+     }
+
+     .about-us-content {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 5rem;
+     }
+
+     .about-us-content article > h3 {
+          margin: 0;
+     }
+
+     .about-us-content .img-container {
+          position: relative;
+          isolation: isolate;
+     }
+
+     .about-us-content .img-container::after {
+          content: '';
+          position: absolute;
+          width: 95%;
+          height: 95%;
+          inset: 0;
+          transform: translateX(-1rem) translateY(-1rem);
+          z-index: -1;
+          outline: 0.6rem solid var(--accent-text-color);
+          border-radius: 5px;
+     }
+
+     .our-gallery {
+          padding-bottom: 0;
+     }
+
+     .tour-cards {
+          grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+     }
+
+     .gallery-images {
+          grid-template-columns: repeat(4, 1fr);
+          gap: 0;
+     }
+
+     /* .gallery-images > img {
+          width: 25%;
+     } */
+}
