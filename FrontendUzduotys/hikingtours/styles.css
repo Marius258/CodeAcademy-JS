@@ -215,14 +215,14 @@ body {
 
 .services {
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
      text-align: center;
      gap: 4rem;
 }
 .service-icon {
      background-color: var(--accent-text-color);
      font-size: 2.5rem;
-     width: 4rem;
+     width: 5rem;
      padding: 1rem;
 }
 /* //OUR SERVICES */
@@ -239,6 +239,11 @@ body {
 
 .card-image {
      position: relative;
+     overflow: hidden;
+}
+
+.card-image img {
+     aspect-ratio: 16 / 10;
 }
 
 .card-image:after {
@@ -264,7 +269,7 @@ body {
      display: grid;
      grid-template-columns: 1fr 1fr;
      align-items: center;
-     padding-inline: 2rem;
+     padding-inline: 1rem;
      font-size: 1.725rem;
      text-transform: capitalize;
 }
@@ -296,7 +301,7 @@ body {
      flex-direction: column;
      grid-template-columns: 1fr;
      background-color: var(--accent-bg-color);
-     padding-inline: 0;
+     padding: 0;
 }
 
 .our-gallery h2 {
@@ -319,12 +324,17 @@ body {
      background-color: var(--secodary-bg-color);
      color: var(--secondary-text-color);
      display: flex;
+     padding: 1rem;
 }
 
 .newsletter h2 {
      text-align: center;
-     line-height: 200%;
+     line-height: 150%;
      font-size: 2.5rem;
+}
+
+.newsletter-text {
+     width: 50%;
 }
 
 .email-input {
@@ -354,6 +364,10 @@ body {
 .email-input input::placeholder {
      color: var(--main-text-color);
      text-transform: uppercase;
+}
+
+.copyright {
+     font-size: 1.3rem;
 }
 
 /* //NEWSLETTER */
@@ -459,20 +473,22 @@ body {
           border-radius: 5px;
      }
 
-     .our-gallery {
-          padding-bottom: 0;
+     .featured-tours {
+          width: 80vw;
+          margin: 0 auto;
      }
 
      .tour-cards {
-          grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+          grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+          /* gap: 6rem; */
+     }
+
+     .card {
+          width: fit-content;
      }
 
      .gallery-images {
           grid-template-columns: repeat(4, 1fr);
           gap: 0;
      }
-
-     /* .gallery-images > img {
-          width: 25%;
-     } */
 }
