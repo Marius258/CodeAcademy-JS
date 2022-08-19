@@ -44,7 +44,8 @@ body {
 .section {
      /* padding-inline: max(10vw, 4rem);
      padding-block: max(5vw, 2rem); */
-     padding: 4rem;
+     padding-inline: 4rem;
+     padding-bottom: 4rem;
 
      font-size: 1.125rem;
 }
@@ -410,6 +411,10 @@ body {
      .header .links a,
      .featured-tours .hidden {
           display: block;
+     }
+
+     .section .title {
+          margin-block: 7rem;
      }
 
      .hero {
