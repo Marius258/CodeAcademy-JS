@@ -7,6 +7,10 @@
      --accent-bg-color: hsl(195, 40%, 98%);
 }
 
+html {
+     scroll-behavior: smooth;
+}
+
 body {
      font-family: 'Roboto', sans-serif;
 }
