@@ -44,15 +44,15 @@ body {
 .section {
      /* padding-inline: max(10vw, 4rem);
      padding-block: max(5vw, 2rem); */
-     padding-inline: 4rem;
-     padding-bottom: 4rem;
+     padding: 4rem;
 
      font-size: 1.125rem;
 }
 
 .section .title {
+     margin-top: 0;
      font-size: 2.5rem;
-     margin-block: 4rem;
+     margin-bottom: 4rem;
 }
 
 .paragraph {
@@ -309,7 +309,8 @@ body {
      flex-direction: column;
      grid-template-columns: 1fr;
      background-color: var(--accent-bg-color);
-     padding: 0;
+     padding-inline: 0;
+     padding-bottom: 0;
 }
 
 .our-gallery h2 {
@@ -332,7 +333,7 @@ body {
      background-color: var(--secodary-bg-color);
      color: var(--secondary-text-color);
      display: flex;
-     padding: 1rem;
+     padding-inline: 1rem;
 }
 
 .newsletter h2 {
@@ -414,7 +415,7 @@ body {
      }
 
      .section .title {
-          margin-block: 7rem;
+          margin-bottom: 7rem;
      }
 
      .hero {
