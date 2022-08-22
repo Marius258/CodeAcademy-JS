@@ -71,7 +71,8 @@ body {
      text-decoration: none;
      font-size: 1.25rem;
      font-weight: 600;
-     transition: 0.2s ease-in;
+     transition: transform 0.2s ease-in;
+     display: inline-block;
 }
 
 .link-sm:hover {
