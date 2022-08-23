@@ -1,0 +1,49 @@
+body {
+     height: 100vh;
+     width: 100vw;
+     display: flex;
+     gap: 5rem;
+     align-items: center;
+     div {
+          width: 20vw;
+          height: 20vh;
+          padding: 1rem;
+     }
+}
+
+@mixin box-styles(
+     $background: blue,
+     $round: false,
+     $shadow: false,
+     $lighten: false
+) {
+     background-color: $background;
+     @if $round {
+          border-radius: 15px;
+     }
+     @if $shadow {
+          box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+               rgba(0, 0, 0, 0.12) 0px -12px 30px,
+               rgba(0, 0, 0, 0.12) 0px 4px 6px,
+               rgba(0, 0, 0, 0.17) 0px 12px 13px,
+               rgba(0, 0, 0, 0.09) 0px -3px 5px;
+     }
+}
+
+.card-1 {
+     @include box-styles(red);
+}
+
+.card-2 {
+     @include box-styles(blue, true, true);
+     @import 'font';
+}
+
+.card-3 {
+     @include box-styles(green, false);
+     @import 'font';
+}
+
+.card-4 {
+     @include box-styles(magenta, false, true);
+}
