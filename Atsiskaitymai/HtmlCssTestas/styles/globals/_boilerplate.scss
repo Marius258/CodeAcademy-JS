@@ -1,0 +1,19 @@
+@use '../abstracts/variables';
+
+html {
+     height: max-content;
+}
+body {
+     font-family: variables.$font;
+}
+
+.container {
+     background-color: variables.$background-primary;
+     height: 100vh;
+     margin: 2rem;
+}
+
+// sets the space between sections
+body .container > * {
+     margin-bottom: 5rem;
+}

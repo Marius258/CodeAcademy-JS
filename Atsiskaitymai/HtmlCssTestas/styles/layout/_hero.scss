@@ -1,0 +1,18 @@
+.hero {
+     display: flex;
+     position: relative;
+}
+
+.hero article {
+     display: flex;
+     flex-direction: column;
+     justify-content: space-between;
+     gap: 2rem;
+     // float: left;
+}
+
+// .hero-graphic {
+//      position: absolute;
+//      top: 0;
+//      right: -50%;
+// }

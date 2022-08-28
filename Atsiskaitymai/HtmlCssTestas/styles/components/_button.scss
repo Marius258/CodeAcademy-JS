@@ -1,0 +1,16 @@
+@use '../abstracts/variables';
+
+.button {
+     width: 11rem;
+     height: 4.5rem;
+     font-weight: 700;
+     background-color: transparent;
+     background: linear-gradient(
+                    variables.$background-primary,
+                    variables.$background-primary
+               )
+               padding-box,
+          linear-gradient(to right, red, orange) border-box;
+     border-radius: 100vmax;
+     border: 0.3rem solid transparent;
+}
