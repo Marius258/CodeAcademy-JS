@@ -1,3 +1,12 @@
-@mixin card-text-color($color1, $color2, $color3) {
-     //  :nth-child(1) ;
+// media query mixin
+// $breakpoints: (
+//      'sm': 0,
+//      'md': 780px,
+//      'lg': 1100px,
+// );
+
+@mixin media($bp: 0) {
+     @media only screen and (min-width: $bp) {
+          @content;
+     }
 }

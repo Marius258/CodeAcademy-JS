@@ -157,6 +157,31 @@ body {
   justify-content: space-between;
   align-items: center;
 }
+.header .nav {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+.header .nav-list {
+  height: 100%;
+  list-style: none;
+  gap: 1rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.header .nav-list :last-child {
+  color: #ff3998;
+}
+@media only screen and (min-width: 760px) {
+  .header .burger {
+    display: none;
+  }
+  .header .nav-list {
+    display: flex;
+  }
+}
 
 .header nav {
   margin-block: 0 auto;
@@ -187,6 +212,11 @@ body {
   background: rgb(255, 96, 145);
   background: linear-gradient(77deg, rgb(255, 96, 145) 0%, rgb(255, 128, 57) 50%, rgb(156, 233, 175) 100%);
   height: 20rem;
+}
+@media only screen and (min-width: 1000px) {
+  .upsell {
+    background-color: red;
+  }
 }
 
 .press {
@@ -285,6 +315,7 @@ body {
   margin-bottom: 1rem;
 }
 .footer .footer-social-links {
+  cursor: pointer;
   padding: 0;
   list-style: none;
   display: flex;

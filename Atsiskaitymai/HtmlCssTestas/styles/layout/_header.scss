@@ -1,7 +1,39 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as *;
+
 .header {
      display: flex;
      justify-content: space-between;
      align-items: center;
+
+     .nav {
+          height: 3rem;
+          display: flex;
+          align-items: center;
+     }
+
+     .nav-list {
+          height: 100%;
+          list-style: none;
+          gap: 1rem;
+          display: none;
+          align-items: center;
+          justify-content: center;
+          margin: 0;
+
+          :last-child {
+               color: variables.$text-accent;
+          }
+     }
+
+     @include media(760px) {
+          .burger {
+               display: none;
+          }
+          .nav-list {
+               display: flex;
+          }
+     }
 }
 
 .header nav {
