@@ -10,12 +10,14 @@ body {
 .container {
      background-color: variables.$background-primary;
      height: 100vh;
+     display: flex;
+     flex-direction: column;
+     gap: 4rem;
 }
 
 // sets the space between sections
 .container > * {
-     margin-bottom: 4rem;
-     margin-inline: 2rem;
+     margin-inline: 5rem;
 
      &:first-child {
           margin-top: 2rem;

@@ -10,11 +10,11 @@
 
           gap: 2rem;
           min-width: 50%;
-
-          // justify-content: space-between;
      }
      .hero-graphic {
           height: 100%;
+
+          // shape-outside: url(../../assets/graphic.png);
      }
 
      @include media(760px) {
