@@ -1,0 +1,15 @@
+@use '../abstracts/variables';
+
+.footer-upsell {
+     border-block: 2px solid opacify($color: #ececec, $amount: 0.2);
+
+     margin-inline: 0;
+     padding-inline: 2rem;
+
+     article {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          width: 50%;
+     }
+}

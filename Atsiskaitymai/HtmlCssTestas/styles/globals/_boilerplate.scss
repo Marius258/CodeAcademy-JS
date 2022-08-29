@@ -1,9 +1,8 @@
 @use '../abstracts/variables';
 
-html {
-     height: max-content;
-}
+html,
 body {
+     height: 100%;
      font-family: variables.$font;
 }
 
@@ -13,7 +12,7 @@ body {
 }
 
 // sets the space between sections
-body .container > * {
+.container > * {
      margin-bottom: 4rem;
      margin-inline: 2rem;
 
@@ -21,7 +20,7 @@ body .container > * {
           margin-top: 2rem;
      }
 
-     &:last-child {
-          margin-bottom: 2rem;
-     }
+     // &:last-child {
+     //      margin-bottom: 2rem;
+     // }
 }

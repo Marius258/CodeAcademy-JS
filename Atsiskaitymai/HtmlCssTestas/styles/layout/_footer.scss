@@ -1,0 +1,44 @@
+@use '../abstracts/variables';
+
+.footer {
+     color: variables.$text-muted;
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+
+     .footer-logo {
+          :first-child {
+               margin-bottom: 1rem;
+          }
+     }
+
+     .footer-social-links {
+          padding: 0;
+          list-style: none;
+          display: flex;
+          gap: 1.2rem;
+          font-size: 1.2rem;
+     }
+
+     .footer-content {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr 1fr;
+          row-gap: 2rem;
+
+          .footer-content-heading {
+               font-weight: 700;
+               margin-bottom: 0.8rem;
+          }
+
+          .footer-content-links {
+               display: flex;
+               flex-direction: column;
+               gap: 0.5rem;
+               a {
+                    text-decoration: none;
+                    color: variables.$text-muted;
+               }
+          }
+     }
+}
