@@ -75,9 +75,13 @@ select {
   }
 }
 .text {
-  color: #555555;
   line-height: 150%;
   font-size: 1.3rem;
+  padding-inline: 0;
+}
+
+.text-muted {
+  color: #555555;
 }
 
 .announcment {
@@ -110,53 +114,17 @@ body {
 .container {
   background-color: white;
   height: 100vh;
-  margin: 2rem;
 }
 
 body .container > * {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
+  margin-inline: 2rem;
 }
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+body .container > *:first-child {
+  margin-top: 2rem;
 }
-
-.header nav {
-  margin-block: 0 auto;
-}
-
-.hero {
-  display: flex;
-  position: relative;
-}
-
-.hero article {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-}
-
-.upsell {
-  color: #111111;
-  position: relative;
-}
-
-.press {
-  display: grid;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 2rem;
-  -moz-column-gap: 4rem;
-       column-gap: 4rem;
-  align-items: center;
-}
-.press img {
-  height: 3rem;
+body .container > *:last-child {
+  margin-bottom: 2rem;
 }
 
 .burger, .burger::before, .burger::after {
@@ -188,4 +156,115 @@ body .container > * {
   background: linear-gradient(white, white) padding-box, linear-gradient(to right, red, orange) border-box;
   border-radius: 100vmax;
   border: 0.3rem solid transparent;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header nav {
+  margin-block: 0 auto;
+}
+
+.hero {
+  position: relative;
+}
+.hero article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 80%;
+}
+.hero .hero-graphic {
+  position: absolute;
+  top: -2rem;
+  left: 12rem;
+}
+
+.upsell {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #111111 !important;
+  margin-inline: 0 !important;
+  padding: 2rem;
+  background: rgb(255, 96, 145);
+  background: linear-gradient(77deg, rgb(255, 96, 145) 0%, rgb(255, 128, 57) 50%, rgb(156, 233, 175) 100%);
+  height: 20rem;
+}
+
+.press {
+  display: grid;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2rem;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+  align-items: center;
+}
+.press img {
+  height: 3rem;
+}
+
+.showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.showcase a {
+  color: #555555;
+}
+.showcase .card-container {
+  display: flex;
+  gap: 2rem;
+}
+.showcase .card-container .card {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.showcase .card-container .card .card-info {
+  margin-top: -6px;
+  padding: 1rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #eeeeee;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+}
+.showcase .card-container .card .card-info :nth-child(2n) {
+  text-align: right;
+}
+.showcase .card-container .card .card-info .series-name {
+  color: #fd8d4f;
+  font-size: 0.8rem;
+}
+.showcase .card-container .card .card-info .top-bid {
+  color: #555555;
+  font-size: 0.8rem;
+}
+.showcase .card-container .card .card-info .nft-name,
+.showcase .card-container .card .card-info .bid-amount {
+  color: #111111;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.showcase .card-container .card .card-info .bid-amount-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.showcase .card-container .card .card-info .nft-id,
+.showcase .card-container .card .card-info .time-left {
+  color: #555555;
 }/*# sourceMappingURL=main.css.map */

@@ -1,18 +1,18 @@
+//  NEED TO FIX THIS
+
 .hero {
-     display: flex;
+     // display: flex;
      position: relative;
+     article {
+          display: flex;
+          flex-direction: column;
+          gap: 1rem;
+          width: 80%;
+          // justify-content: space-between;
+     }
+     .hero-graphic {
+          position: absolute;
+          top: -2rem;
+          left: 12rem;
+     }
 }
-
-.hero article {
-     display: flex;
-     flex-direction: column;
-     justify-content: space-between;
-     gap: 2rem;
-     // float: left;
-}
-
-// .hero-graphic {
-//      position: absolute;
-//      top: 0;
-//      right: -50%;
-// }

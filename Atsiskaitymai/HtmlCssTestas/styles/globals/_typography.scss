@@ -1,9 +1,13 @@
 @use '../abstracts/variables';
 
 .text {
-     color: variables.$text-muted;
      line-height: 150%;
      font-size: 1.3rem;
+     padding-inline: 0;
+}
+
+.text-muted {
+     color: variables.$text-muted;
 }
 
 .announcment {

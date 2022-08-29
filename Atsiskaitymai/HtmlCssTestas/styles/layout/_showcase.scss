@@ -1,0 +1,69 @@
+@use '../abstracts/variables';
+
+.showcase {
+     display: flex;
+     flex-direction: column;
+     gap: 2rem;
+
+     a {
+          color: variables.$text-muted;
+     }
+
+     .card-container {
+          display: flex;
+          gap: 2rem;
+
+          .card {
+               width: max-content;
+               display: flex;
+               flex-direction: column;
+               flex-shrink: 0;
+               .card-info {
+                    margin-top: -6px; // hack, should be fixed
+                    padding: 1rem;
+                    border-bottom-left-radius: 20px;
+                    border-bottom-right-radius: 20px;
+
+                    background-color: #eeeeee;
+
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr 1fr 1fr;
+                    align-items: center;
+
+                    :nth-child(2n) {
+                         text-align: right;
+                    }
+
+                    .series-name {
+                         color: #fd8d4f;
+                         font-size: 0.8rem;
+                    }
+
+                    .top-bid {
+                         color: variables.$text-muted;
+                         font-size: 0.8rem;
+                    }
+
+                    .nft-name,
+                    .bid-amount {
+                         color: variables.$text-primary;
+                         font-weight: 700;
+                         font-size: 1.2rem;
+                    }
+
+                    .bid-amount-container {
+                         display: flex;
+                         align-items: center;
+                         justify-content: flex-end;
+                         gap: 0.5rem;
+                    }
+
+                    .nft-id,
+                    .time-left {
+                         color: variables.$text-muted;
+                    }
+               }
+          }
+     }
+}
