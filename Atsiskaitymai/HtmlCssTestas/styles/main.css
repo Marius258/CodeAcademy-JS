@@ -118,7 +118,7 @@ body {
 }
 
 .container > * {
-  margin-inline: 5rem;
+  margin-inline: 2rem;
 }
 .container > *:first-child {
   margin-top: 2rem;
@@ -239,10 +239,17 @@ body {
   row-gap: 2rem;
   -moz-column-gap: 4rem;
        column-gap: 4rem;
-  align-items: center;
 }
 .press img {
   height: 3rem;
+}
+@media only screen and (min-width: 800px) {
+  .press {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .press img {
+    justify-self: center;
+  }
 }
 
 .showcase {

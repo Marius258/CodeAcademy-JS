@@ -1,12 +1,21 @@
+@use '../abstracts/mixins' as *;
+
 .press {
      display: grid;
      height: fit-content;
      grid-template-columns: 1fr 1fr;
      row-gap: 2rem;
      column-gap: 4rem;
-     align-items: center;
 
      img {
           height: 3rem;
+     }
+
+     @include media(800px) {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+
+          img {
+               justify-self: center;
+          }
      }
 }
