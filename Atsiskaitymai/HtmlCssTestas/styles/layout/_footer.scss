@@ -9,7 +9,7 @@
 
      .footer-content {
           display: flex;
-          justify-content: space-between;
+          flex-direction: column;
 
           .footer-logo {
                :first-child {
@@ -52,10 +52,23 @@
                     column-gap: 4rem;
                }
           }
+
+          @include media(900px) {
+               flex-direction: row;
+               justify-content: space-between;
+          }
      }
 
-     // @include media(700px) {
-     //      flex-direction: row;
-     //      justify-content: space-between;
-     // }
+     .footer-copyright {
+          display: flex;
+          justify-content: space-between;
+
+          .footer-copyright-message {
+               display: none;
+
+               @include media(700px) {
+                    display: block;
+               }
+          }
+     }
 }

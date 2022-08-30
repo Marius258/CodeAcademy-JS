@@ -1,9 +1,4 @@
 // media query mixin
-// $breakpoints: (
-//      'sm': 0,
-//      'md': 780px,
-//      'lg': 1100px,
-// );
 
 @mixin media($bp: 0, $type: min-width) {
      @media only screen and ($type: $bp) {

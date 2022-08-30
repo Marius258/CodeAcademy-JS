@@ -4,10 +4,6 @@
 .hero {
      display: flex;
 
-     // makes hero image not strech
-     // on small screens
-     padding-right: 0;
-
      article {
           display: flex;
           flex-direction: column;
@@ -16,8 +12,12 @@
           min-width: 50%;
      }
      .hero-graphic {
-          height: 100%;
+          object-fit: scale-down;
 
+          // bandziau su shape outside
+          // padaryti, kad tekstas liptu
+          // ant paveiksliuko, bet
+          // nepavyko
           // shape-outside: url(../../assets/graphic.png);
      }
 

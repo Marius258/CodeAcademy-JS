@@ -1,7 +1,8 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins' as *;
 
 .footer-upsell {
-     border-block: 2px solid opacify($color: #ececec, $amount: 0.2);
+     border-block: 2px solid opacify($color: #ececec, $amount: 0.5);
 
      display: flex;
      justify-content: space-between;
@@ -13,6 +14,28 @@
           gap: 1rem;
           width: 50%;
           padding-bottom: 4rem;
+
+          .text {
+               position: relative;
+
+               @include media(700px) {
+                    &::after {
+                         display: none;
+                    }
+               }
+               &::after {
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: -2rem;
+                    height: 2px;
+                    width: 100vw;
+                    background-color: transparentize(
+                         $color: #ececec,
+                         $amount: 0.5
+                    );
+               }
+          }
      }
 
      .upsell-image-container {
