@@ -1,45 +1,61 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins' as *;
 
 .footer {
      color: variables.$text-muted;
-     display: flex;
-     flex-direction: column;
+     // display: flex;
+
      gap: 2rem;
 
-     .footer-logo {
-          :first-child {
-               margin-bottom: 1rem;
-          }
-     }
-
-     .footer-social-links {
-          cursor: pointer;
-          padding: 0;
-          list-style: none;
-          display: flex;
-          gap: 1.2rem;
-          font-size: 1.2rem;
-     }
-
      .footer-content {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          grid-template-rows: 1fr 1fr;
-          row-gap: 2rem;
+          display: flex;
+          justify-content: space-between;
 
-          .footer-content-heading {
-               font-weight: 700;
-               margin-bottom: 0.8rem;
+          .footer-logo {
+               :first-child {
+                    margin-bottom: 1rem;
+               }
           }
 
-          .footer-content-links {
+          .footer-social-links {
+               cursor: pointer;
+               padding: 0;
+               list-style: none;
                display: flex;
-               flex-direction: column;
-               gap: 0.5rem;
-               a {
-                    text-decoration: none;
-                    color: variables.$text-muted;
+               gap: 1.2rem;
+               font-size: 1.2rem;
+          }
+
+          .footer-links {
+               display: grid;
+               grid-template-columns: 1fr 1fr;
+               grid-template-rows: 1fr 1fr;
+               row-gap: 2rem;
+
+               .footer-links-heading {
+                    font-weight: 700;
+                    margin-bottom: 0.8rem;
+               }
+
+               .footer-links-list {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5rem;
+                    a {
+                         text-decoration: none;
+                         color: variables.$text-muted;
+                    }
+               }
+
+               @include media(900px) {
+                    grid-template-columns: 1fr 1fr 1fr 1fr;
+                    column-gap: 4rem;
                }
           }
      }
+
+     // @include media(700px) {
+     //      flex-direction: row;
+     //      justify-content: space-between;
+     // }
 }
