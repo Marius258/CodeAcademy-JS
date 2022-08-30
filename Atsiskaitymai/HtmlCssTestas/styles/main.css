@@ -112,16 +112,18 @@ body {
 .container {
   background-color: white;
   height: 100vh;
+  max-width: 1300px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 4rem;
+  padding-block: 2rem;
 }
 
-.container > * {
-  margin-inline: 2rem;
-}
-.container > *:first-child {
-  margin-top: 2rem;
+@media only screen and (max-width: 1360px) {
+  .container > * {
+    padding-inline: 2rem;
+  }
 }
 
 .burger, .burger::before, .burger::after {
@@ -192,7 +194,7 @@ body {
 
 .hero {
   display: flex;
-  position: relative;
+  padding-right: 0;
 }
 .hero article {
   display: flex;
@@ -217,7 +219,6 @@ body {
   flex-direction: column;
   justify-content: flex-end;
   color: #111111;
-  margin-inline: 0;
   padding: 2rem;
   background: rgb(255, 96, 145);
   background: linear-gradient(77deg, rgb(255, 96, 145) 0%, rgb(255, 128, 57) 50%, rgb(156, 233, 175) 100%);
@@ -225,7 +226,6 @@ body {
 }
 @media only screen and (min-width: 1300px) {
   .upsell {
-    margin-inline: 2rem;
     border-radius: 10px;
   }
 }
@@ -262,6 +262,7 @@ body {
 }
 .showcase .card-container {
   display: flex;
+  justify-content: space-between;
   gap: 2rem;
 }
 .showcase .card-container .card {
@@ -313,14 +314,24 @@ body {
 
 .footer-upsell {
   border-block: 2px solid #ececec;
-  margin-inline: 0;
-  padding-inline: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4rem;
 }
 .footer-upsell article {
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 50%;
+  padding-bottom: 4rem;
+}
+.footer-upsell .upsell-image-container {
+  width: 50%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
 }
 
 .footer {

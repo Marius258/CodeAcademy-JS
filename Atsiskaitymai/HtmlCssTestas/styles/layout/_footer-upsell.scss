@@ -3,13 +3,23 @@
 .footer-upsell {
      border-block: 2px solid opacify($color: #ececec, $amount: 0.2);
 
-     margin-inline: 0;
-     padding-inline: 2rem;
-
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     padding-top: 4rem;
      article {
           display: flex;
           flex-direction: column;
           gap: 1rem;
           width: 50%;
+          padding-bottom: 4rem;
+     }
+
+     .upsell-image-container {
+          width: 50%;
+          min-height: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
      }
 }

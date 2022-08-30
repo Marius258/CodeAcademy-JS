@@ -1,17 +1,17 @@
 @use '../abstracts/variables';
+@use '../abstracts/mixins' as *;
 
 .showcase {
      display: flex;
      flex-direction: column;
-
      gap: 2rem;
-
      a {
           color: variables.$text-muted;
      }
 
      .card-container {
           display: flex;
+          justify-content: space-between;
           gap: 2rem;
           .card {
                width: max-content;
@@ -66,4 +66,10 @@
                }
           }
      }
+
+     // @include media(1300px) {
+     //      .card-container {
+     //           justify-content: center;
+     //      }
+     // }
 }

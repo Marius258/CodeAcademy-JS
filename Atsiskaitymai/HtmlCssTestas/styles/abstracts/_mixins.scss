@@ -5,8 +5,8 @@
 //      'lg': 1100px,
 // );
 
-@mixin media($bp: 0) {
-     @media only screen and (min-width: $bp) {
+@mixin media($bp: 0, $type: min-width) {
+     @media only screen and ($type: $bp) {
           @content;
      }
 }
