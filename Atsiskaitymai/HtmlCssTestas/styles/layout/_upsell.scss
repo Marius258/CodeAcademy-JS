@@ -1,0 +1,25 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as *;
+
+.upsell {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-end;
+
+     color: variables.$text-primary;
+
+     padding: 2rem;
+
+     background: rgb(255, 96, 145);
+     background: linear-gradient(
+          77deg,
+          rgba(255, 96, 145, 1) 0%,
+          rgba(255, 128, 57, 1) 50%,
+          rgba(156, 233, 175, 1) 100%
+     );
+     min-height: 20rem;
+
+     @include media(1300px) {
+          border-radius: 10px;
+     }
+}

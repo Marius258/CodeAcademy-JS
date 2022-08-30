@@ -1,0 +1,33 @@
+@use '../abstracts/mixins' as *;
+//  NEED TO FIX THIS
+
+.hero {
+     display: flex;
+
+     article {
+          display: flex;
+          flex-direction: column;
+
+          gap: 2rem;
+          min-width: 50%;
+     }
+     .hero-graphic {
+          object-fit: scale-down;
+
+          // bandziau su shape outside
+          // padaryti, kad tekstas liptu
+          // ant paveiksliuko, bet
+          // nepavyko
+          // shape-outside: url(../../assets/graphic.png);
+     }
+
+     @include media(760px) {
+          article {
+               justify-content: center;
+
+               .slogan {
+                    font-size: 5rem; // fix with clamp or media
+               }
+          }
+     }
+}

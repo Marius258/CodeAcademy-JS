@@ -1,0 +1,29 @@
+// Styles for the burger button used
+// in the mobile version of the header
+
+@use '../abstracts/variables';
+
+.burger {
+     background-color: variables.$light-grey;
+     width: 1.5rem;
+     height: 0.25rem;
+     border: none;
+     border-radius: 10px;
+     position: relative;
+
+     &::after {
+          content: '';
+          position: absolute;
+          top: -0.5rem;
+          left: 0;
+          @extend .burger;
+     }
+
+     &::before {
+          content: '';
+          position: absolute;
+          top: 0.5rem;
+          left: 0;
+          @extend .burger;
+     }
+}

@@ -1,0 +1,29 @@
+@use '../abstracts/variables';
+
+.text {
+     line-height: 150%;
+     font-size: 1.3rem;
+     padding-inline: 0;
+}
+
+.text-muted {
+     color: variables.$text-muted;
+}
+
+.announcment {
+     text-transform: uppercase;
+     font-weight: 700;
+     color: variables.$text-accent;
+}
+
+.slogan {
+     font-weight: 700;
+     color: variables.$text-primary;
+     font-size: 3rem;
+     line-height: 120%;
+}
+
+.big-text {
+     font-size: 2.5rem;
+     font-weight: 400;
+}

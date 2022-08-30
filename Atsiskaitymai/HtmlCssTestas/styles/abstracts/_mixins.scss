@@ -1,0 +1,7 @@
+// media query mixin
+
+@mixin media($bp: 0, $type: min-width) {
+     @media only screen and ($type: $bp) {
+          @content;
+     }
+}

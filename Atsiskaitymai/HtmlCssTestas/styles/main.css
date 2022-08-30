@@ -1,0 +1,416 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: inline-block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+*::before,
+*::after {
+    -webkit-animation-duration: 0.01ms !important;
+            animation-duration: 0.01ms !important;
+    -webkit-animation-iteration-count: 1 !important;
+            animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.text {
+  line-height: 150%;
+  font-size: 1.3rem;
+  padding-inline: 0;
+}
+
+.text-muted {
+  color: #555555;
+}
+
+.announcment {
+  text-transform: uppercase;
+  font-weight: 700;
+  color: #ff3998;
+}
+
+.slogan {
+  font-weight: 700;
+  color: #111111;
+  font-size: 3rem;
+  line-height: 120%;
+}
+
+.big-text {
+  font-size: 2.5rem;
+  font-weight: 400;
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "Open Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+.container {
+  background-color: white;
+  height: 100vh;
+  max-width: 1300px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding-block: 2rem;
+}
+
+@media only screen and (max-width: 1360px) {
+  .container > * {
+    padding-inline: 2rem;
+  }
+}
+
+.burger, .burger::before, .burger::after {
+  background-color: #999999;
+  width: 1.5rem;
+  height: 0.25rem;
+  border: none;
+  border-radius: 10px;
+  position: relative;
+}
+.burger::after {
+  content: "";
+  position: absolute;
+  top: -0.5rem;
+  left: 0;
+}
+.burger::before {
+  content: "";
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+}
+
+.button {
+  width: 11rem;
+  height: 4.5rem;
+  font-weight: 700;
+  background-color: transparent;
+  background: linear-gradient(white, white) padding-box, linear-gradient(to right, red, orange) border-box;
+  border-radius: 100vmax;
+  border: 0.3rem solid transparent;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .nav {
+  height: 3rem;
+  display: flex;
+  align-items: center;
+}
+.header .nav-list {
+  height: 100%;
+  list-style: none;
+  gap: 1rem;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.header .nav-list :last-child {
+  color: #ff3998;
+}
+@media only screen and (min-width: 760px) {
+  .header .burger {
+    display: none;
+  }
+  .header .nav-list {
+    display: flex;
+  }
+}
+
+.header nav {
+  margin-block: 0 auto;
+}
+
+.hero {
+  display: flex;
+}
+.hero article {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  min-width: 50%;
+}
+.hero .hero-graphic {
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+}
+@media only screen and (min-width: 760px) {
+  .hero article {
+    justify-content: center;
+  }
+  .hero article .slogan {
+    font-size: 5rem;
+  }
+}
+
+.upsell {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  color: #111111;
+  padding: 2rem;
+  background: rgb(255, 96, 145);
+  background: linear-gradient(77deg, rgb(255, 96, 145) 0%, rgb(255, 128, 57) 50%, rgb(156, 233, 175) 100%);
+  min-height: 20rem;
+}
+@media only screen and (min-width: 1300px) {
+  .upsell {
+    border-radius: 10px;
+  }
+}
+
+.press {
+  display: grid;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 2rem;
+  -moz-column-gap: 4rem;
+       column-gap: 4rem;
+}
+.press img {
+  height: 3rem;
+}
+@media only screen and (min-width: 800px) {
+  .press {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .press img {
+    justify-self: center;
+  }
+}
+
+.showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.showcase a {
+  color: #555555;
+}
+.showcase .card-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.showcase .card-container .card {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+}
+.showcase .card-container .card .card-info {
+  margin-top: -6px;
+  padding: 1rem;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: #eeeeee;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  align-items: center;
+}
+.showcase .card-container .card .card-info :nth-child(2n) {
+  text-align: right;
+}
+.showcase .card-container .card .card-info .series-name {
+  color: #fd8d4f;
+  font-size: 0.8rem;
+}
+.showcase .card-container .card .card-info .top-bid {
+  color: #555555;
+  font-size: 0.8rem;
+}
+.showcase .card-container .card .card-info .nft-name,
+.showcase .card-container .card .card-info .bid-amount {
+  color: #111111;
+  font-weight: 700;
+  font-size: 1.2rem;
+}
+.showcase .card-container .card .card-info .bid-amount-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+}
+.showcase .card-container .card .card-info .nft-id,
+.showcase .card-container .card .card-info .time-left {
+  color: #555555;
+}
+
+.footer-upsell {
+  border-block: 2px solid #ececec;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 4rem;
+}
+.footer-upsell article {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 50%;
+  padding-bottom: 4rem;
+}
+.footer-upsell article .text {
+  position: relative;
+}
+@media only screen and (min-width: 700px) {
+  .footer-upsell article .text::after {
+    display: none;
+  }
+}
+.footer-upsell article .text::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2rem;
+  height: 2px;
+  width: 100vw;
+  background-color: rgba(236, 236, 236, 0.5);
+}
+.footer-upsell .upsell-image-container {
+  width: 50%;
+  min-height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.footer {
+  color: #555555;
+  gap: 2rem;
+}
+.footer .footer-content {
+  display: flex;
+  flex-direction: column;
+}
+.footer .footer-content .footer-logo :first-child {
+  margin-bottom: 1rem;
+}
+.footer .footer-content .footer-social-links {
+  cursor: pointer;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  font-size: 1.2rem;
+}
+.footer .footer-content .footer-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 2rem;
+}
+.footer .footer-content .footer-links .footer-links-heading {
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+}
+.footer .footer-content .footer-links .footer-links-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer .footer-content .footer-links .footer-links-list a {
+  text-decoration: none;
+  color: #555555;
+}
+@media only screen and (min-width: 900px) {
+  .footer .footer-content .footer-links {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    -moz-column-gap: 4rem;
+         column-gap: 4rem;
+  }
+}
+@media only screen and (min-width: 900px) {
+  .footer .footer-content {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+.footer .footer-copyright {
+  display: flex;
+  justify-content: space-between;
+}
+.footer .footer-copyright .footer-copyright-message {
+  display: none;
+}
+@media only screen and (min-width: 700px) {
+  .footer .footer-copyright .footer-copyright-message {
+    display: block;
+  }
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,26 @@
+@use '../abstracts/variables';
+@use '../abstracts/mixins' as *;
+
+html,
+body {
+     height: 100%;
+     font-family: variables.$font;
+     overflow-x: hidden;
+}
+
+.container {
+     background-color: variables.$background-primary;
+     height: 100vh;
+     max-width: 1300px;
+     margin: 0 auto;
+     display: flex;
+     flex-direction: column;
+     gap: 4rem;
+     padding-block: 2rem;
+}
+
+.container > * {
+     @include media(1360px, max-width) {
+          padding-inline: 2rem;
+     }
+}
