@@ -7,8 +7,20 @@
                name="viewport"
                content="width=device-width, initial-scale=1.0"
           />
+          <link rel="stylesheet" href="styles.css" />
           <script src="app.js" defer></script>
           <title>Document</title>
      </head>
-     <body></body>
+     <body>
+          <div class="container">
+               <header>
+                    <input type="range" id="input" min="2" max="8" step="2" />
+                    <!-- <input type="number" id="input" step="2" /> -->
+                    <button id="btn">Click me</button>
+               </header>
+               <main>
+                    <div id="gameboard"></div>
+               </main>
+          </div>
+     </body>
 </html>
