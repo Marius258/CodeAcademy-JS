@@ -30,17 +30,13 @@ function createCards(inputValue) {
      const valueArray = []
 
      // creates the array for populating card values
-     for (let i = 1; i <= inputValue * inputValue; i++) {
+     for (let i = 1; i <= (inputValue * inputValue) / 2; i++) {
           valueArray.push(i)
           valueArray.push(i)
-          if (valueArray.length >= inputValue * inputValue) {
-               break
-          }
      }
 
      // uses the array to add values to grid items and adds
      // the event listener for checking if cards match
-
      cards.forEach((card) => {
           const random = Math.floor(Math.random() * valueArray.length)
           card.setAttribute('data-value', valueArray[random])

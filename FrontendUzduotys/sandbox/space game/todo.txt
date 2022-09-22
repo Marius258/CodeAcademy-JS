@@ -1,0 +1,24 @@
+1. zaidimo lauko grid generavimas DONE
+
+2. lektuvo figuros generavimas
+    2.1 sukurti lektuvo daliu container'i (grid)
+    2.2 sukurti individualias lektuvo dalis
+
+3. lektuvo judejimo logika
+    3.1 sukurti klavieturos event'us
+    3.2 neleisti lektuvui uzeiti uz zaidimu lauko ribu 
+
+4. atsitiktiniu figuru generavimas
+    4.1 sukurti random skaiciu generatoriu
+    4.2 panaudojus 4.1 sugeneruoti figura
+    4.3 padeti ja zaidimu lauko virsuje
+    4.4 neleisti dviems figuroms atsirasti ant kitos
+
+5. atsitiktiniu figuru judejimo logika
+    5.1 sukurti fukcija kuri leis figuroms kristi i apacia
+    5.2 laikui begant pagreitinti figuru kritima
+
+6. atsitiktiniu figuru susidurimo su lektuvu logika
+    6.1 patikrinti ar lektuvo ir atsitiktiniu figuru masyvas susiduria
+    
+            

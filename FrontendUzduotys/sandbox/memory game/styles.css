@@ -65,7 +65,8 @@ main {
 .grid-item::after {
      content: attr(data-value);
      font-size: 2rem;
-     inset: 40%;
+     top: 35%;
+     left: 40%;
      color: white;
      position: absolute;
      display: var(--display);
