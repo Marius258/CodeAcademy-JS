@@ -1,7 +1,7 @@
 const gameContainer = document.querySelector('#gameContainer')
 
 // generating the game field
-const gameFieldSize = 50
+const gameFieldSize = 60
 
 const generateGameField = (gameFieldSize) => {
      gameContainer.style.setProperty('--grid-size', gameFieldSize)
@@ -19,7 +19,7 @@ const generateGameField = (gameFieldSize) => {
 // generating the plane
 const centerPixel = {
      x: gameFieldSize / 2,
-     y: 40,
+     y: gameFieldSize - 10,
 }
 
 function getAmountToSubtract(yValue) {
@@ -78,7 +78,7 @@ const generatePlane = () => {
 }
 
 // move the plane
-// TODO: remove magic numbers
+// TODO: remove magic numbers on line 87 and 94
 const moveThePlane = (e) => {
      e = e || window.event
 
