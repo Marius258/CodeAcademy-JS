@@ -158,22 +158,29 @@ const drawEnemies = (interval) => {
      }
 }
 
-const moveEnemies = async () => {
+// checking for collisions
+
+const checkForCollision = () => {
+     const collisionPixel = document.querySelectorAll('.plane.enemy')
+     if (collisionPixel.length) {
+          return true
+     }
+}
+
+// intervals
+
+const moveEnemies = () => {
      const interval = setInterval(() => {
           drawEnemies()
-     }, 100)
+          if (checkForCollision()) {
+               clearInterval(interval)
+          }
+     }, 50)
 }
 
-const enemyController = () => {
+const generateEnemies = () => {
      setInterval(generateEnemyPixelArray, 2000)
 }
-
-document.addEventListener('keydown', moveThePlane)
-
-generateGameField()
-generatePlane()
-enemyController()
-moveEnemies()
 
 // utility functions
 // function clearPreviousShapePosition(shapeToClear) {
@@ -188,3 +195,15 @@ function getRandomInt(min, max) {
      max = Math.floor(max)
      return Math.floor(Math.random() * (max - min + 1) + min)
 }
+
+// game initialization
+
+const game = () => {
+     generateGameField()
+     document.addEventListener('keydown', moveThePlane)
+     generatePlane()
+     generateEnemies()
+     moveEnemies()
+}
+
+game()
