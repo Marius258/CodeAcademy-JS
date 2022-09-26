@@ -37,3 +37,7 @@ body {
 .plane {
      background-color: black;
 }
+
+.enemy {
+     background-color: red;
+}

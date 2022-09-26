@@ -1,12 +1,15 @@
 const gameContainer = document.querySelector('#gameContainer')
 
-// generating the game field
-const gameFieldSize = 60
+const GAME_FIELD_SIZE = 60
+const MIN_ENEMY_WIDTH = GAME_FIELD_SIZE * 0.1
+const MAX_ENEMY_WIDTH = GAME_FIELD_SIZE * 0.3
+const CURRENT_ENEMY_ARRAY = []
 
-const generateGameField = (gameFieldSize) => {
-     gameContainer.style.setProperty('--grid-size', gameFieldSize)
-     for (i = 0; i < gameFieldSize; i++) {
-          for (j = 0; j < gameFieldSize; j++) {
+// generating the game field
+const generateGameField = () => {
+     gameContainer.style.setProperty('--grid-size', GAME_FIELD_SIZE)
+     for (i = 0; i < GAME_FIELD_SIZE; i++) {
+          for (j = 0; j < GAME_FIELD_SIZE; j++) {
                const cell = document.createElement('div')
                cell.setAttribute('data-y', i + 1)
                cell.setAttribute('data-x', j + 1)
@@ -17,38 +20,38 @@ const generateGameField = (gameFieldSize) => {
 }
 
 // generating the plane
-const centerPixel = {
-     x: gameFieldSize / 2,
-     y: gameFieldSize - 10,
+const planeCenterPixel = {
+     x: GAME_FIELD_SIZE / 2,
+     y: GAME_FIELD_SIZE - 10,
 }
 
 function getAmountToSubtract(yValue) {
-     return Math.abs(centerPixel.x - yValue)
+     return Math.abs(planeCenterPixel.x - yValue)
 }
 
 const generatePlanePixelArray = () => {
      const planePixelArray = [
-          [centerPixel.y, centerPixel.x],
-          [centerPixel.y + 1, centerPixel.x + 0],
-          [centerPixel.y + 2, centerPixel.x + 0],
-          [centerPixel.y + 3, centerPixel.x + 0],
-          [centerPixel.y + 4, centerPixel.x + 0],
-          [centerPixel.y + 5, centerPixel.x + 0],
-          [centerPixel.y + 6, centerPixel.x + 0],
-          [centerPixel.y + 7, centerPixel.x + 0],
-          [centerPixel.y + 8, centerPixel.x + 0],
-          [centerPixel.y + 9, centerPixel.x + 0],
-          [centerPixel.y + 8, centerPixel.x + 1],
-          [centerPixel.y + 8, centerPixel.x + 2],
-          [centerPixel.y + 8, centerPixel.x + 3],
-          [centerPixel.y + 8, centerPixel.x + 4],
-          [centerPixel.y + 2, centerPixel.x + 1],
-          [centerPixel.y + 3, centerPixel.x + 1],
-          [centerPixel.y + 4, centerPixel.x + 1],
-          [centerPixel.y + 5, centerPixel.x + 1],
-          [centerPixel.y + 6, centerPixel.x + 1],
-          [centerPixel.y + 7, centerPixel.x + 1],
-          [centerPixel.y + 7, centerPixel.x + 2],
+          [planeCenterPixel.y, planeCenterPixel.x],
+          [planeCenterPixel.y + 1, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 2, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 3, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 4, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 5, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 6, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 7, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 8, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 9, planeCenterPixel.x + 0],
+          [planeCenterPixel.y + 8, planeCenterPixel.x + 1],
+          [planeCenterPixel.y + 8, planeCenterPixel.x + 2],
+          [planeCenterPixel.y + 8, planeCenterPixel.x + 3],
+          [planeCenterPixel.y + 8, planeCenterPixel.x + 4],
+          [planeCenterPixel.y + 2, planeCenterPixel.x + 1],
+          [planeCenterPixel.y + 3, planeCenterPixel.x + 1],
+          [planeCenterPixel.y + 4, planeCenterPixel.x + 1],
+          [planeCenterPixel.y + 5, planeCenterPixel.x + 1],
+          [planeCenterPixel.y + 6, planeCenterPixel.x + 1],
+          [planeCenterPixel.y + 7, planeCenterPixel.x + 1],
+          [planeCenterPixel.y + 7, planeCenterPixel.x + 2],
      ]
 
      planePixelArray.forEach((pixel) => {
@@ -70,10 +73,10 @@ const generatePlane = () => {
      planePixelArray = generatePlanePixelArray()
 
      planePixelArray.forEach((pixel) => {
-          let spawn = document.querySelector(
+          let spawnPlane = document.querySelector(
                `[data-y='${pixel[0]}'][data-x="${pixel[1]}"]`
           )
-          spawn.classList.add('plane')
+          spawnPlane.classList.add('plane')
      })
 }
 
@@ -83,26 +86,63 @@ const moveThePlane = (e) => {
      e = e || window.event
 
      if (e.key === 'ArrowLeft') {
-          centerPixel.x--
-          if (centerPixel.x === 4) {
-               centerPixel.x++
+          planeCenterPixel.x--
+          if (planeCenterPixel.x === 4) {
+               planeCenterPixel.x++
                return
           }
           generatePlane()
      } else if (e.key === 'ArrowRight') {
-          centerPixel.x++
-          if (centerPixel.x === gameFieldSize - 3) {
-               centerPixel.x--
+          planeCenterPixel.x++
+          if (planeCenterPixel.x === GAME_FIELD_SIZE - 3) {
+               planeCenterPixel.x--
                return
           }
           generatePlane()
      }
 }
 
+// generating enemy objects
+const generateEnemyPixelArray = () => {
+     const width = getRandomInt(MIN_ENEMY_WIDTH, MAX_ENEMY_WIDTH)
+     const height = getRandomInt(3, 8)
+
+     const startingEnemyPixel = {
+          x: getRandomInt(1, GAME_FIELD_SIZE - width),
+          y: -Math.abs(height) + 2,
+     }
+
+     const enemyPixelArray = []
+     for (i = 0; i < width; i++) {
+          for (j = 0; j < height; j++) {
+               let pixel = [startingEnemyPixel.y + j, startingEnemyPixel.x + i]
+               enemyPixelArray.push(pixel)
+          }
+     }
+     CURRENT_ENEMY_ARRAY.push(enemyPixelArray)
+     return enemyPixelArray
+}
+
+const spawnEnemy = () => {
+     const enemyPixelArray = generateEnemyPixelArray()
+
+     enemyPixelArray.forEach((pixel) => {
+          let spawnEnemy = document.querySelector(
+               `[data-y='${pixel[0]}'][data-x="${pixel[1]}"]`
+          )
+          if (spawnEnemy) {
+               spawnEnemy.classList.add('enemy')
+          }
+     })
+}
+
+const moveEnemy = () => {}
+
 document.addEventListener('keydown', moveThePlane)
 
-generateGameField(gameFieldSize)
+generateGameField()
 generatePlane()
+spawnEnemy()
 
 // utility functions
 // function clearPreviousShapePosition(shapeToClear) {
@@ -111,3 +151,9 @@ generatePlane()
 //           el.classList.remove(`.${shapeToClear}`)
 //      })
 // }
+
+function getRandomInt(min, max) {
+     min = Math.ceil(min)
+     max = Math.floor(max)
+     return Math.floor(Math.random() * (max - min + 1) + min)
+}
