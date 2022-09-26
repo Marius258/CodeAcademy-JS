@@ -8,8 +8,8 @@ const CURRENT_ENEMY_ARRAY = []
 // generating the game field
 const generateGameField = () => {
      gameContainer.style.setProperty('--grid-size', GAME_FIELD_SIZE)
-     for (i = 0; i < GAME_FIELD_SIZE; i++) {
-          for (j = 0; j < GAME_FIELD_SIZE; j++) {
+     for (let i = 0; i < GAME_FIELD_SIZE; i++) {
+          for (let j = 0; j < GAME_FIELD_SIZE; j++) {
                const cell = document.createElement('div')
                cell.setAttribute('data-y', i + 1)
                cell.setAttribute('data-x', j + 1)
@@ -113,9 +113,16 @@ const generateEnemyPixelArray = () => {
      }
 
      const enemyPixelArray = []
-     for (i = 0; i < width; i++) {
-          for (j = 0; j < height; j++) {
-               let pixel = [startingEnemyPixel.y + j, startingEnemyPixel.x + i]
+
+     enemyPixelArray.maxHeight = height
+     // enemyPixelArray.id = Math.floor(Math.random() * 10000)
+
+     for (let i = 0; i < width; i++) {
+          for (let j = 0; j < height; j++) {
+               let pixel = {
+                    y: startingEnemyPixel.y + j,
+                    x: startingEnemyPixel.x + i,
+               }
                enemyPixelArray.push(pixel)
           }
      }
@@ -123,26 +130,50 @@ const generateEnemyPixelArray = () => {
      return enemyPixelArray
 }
 
-const spawnEnemy = () => {
-     const enemyPixelArray = generateEnemyPixelArray()
-
-     enemyPixelArray.forEach((pixel) => {
-          let spawnEnemy = document.querySelector(
-               `[data-y='${pixel[0]}'][data-x="${pixel[1]}"]`
-          )
-          if (spawnEnemy) {
-               spawnEnemy.classList.add('enemy')
-          }
+const drawEnemies = (interval) => {
+     const previousEnemyCells = document.querySelectorAll('.enemy')
+     previousEnemyCells.forEach((el) => {
+          el.classList.remove('enemy')
      })
+
+     for (let i = 0; i < CURRENT_ENEMY_ARRAY.length; i++) {
+          CURRENT_ENEMY_ARRAY[i].forEach((pixel, index) => {
+               let drawEnemies = document.querySelector(
+                    `[data-y='${pixel.y}'][data-x="${pixel.x}"]`
+               )
+
+               if (drawEnemies) {
+                    drawEnemies.classList.add('enemy')
+               }
+
+               pixel.y = pixel.y + 1
+
+               if (
+                    pixel.y - CURRENT_ENEMY_ARRAY[i].maxHeight >
+                    GAME_FIELD_SIZE
+               ) {
+                    CURRENT_ENEMY_ARRAY[i].splice(index, 1)
+               }
+          })
+     }
 }
 
-const moveEnemy = () => {}
+const moveEnemies = async () => {
+     const interval = setInterval(() => {
+          drawEnemies()
+     }, 100)
+}
+
+const enemyController = () => {
+     setInterval(generateEnemyPixelArray, 2000)
+}
 
 document.addEventListener('keydown', moveThePlane)
 
 generateGameField()
 generatePlane()
-spawnEnemy()
+enemyController()
+moveEnemies()
 
 // utility functions
 // function clearPreviousShapePosition(shapeToClear) {
