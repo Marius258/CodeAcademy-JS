@@ -1,6 +1,6 @@
 const gameContainer = document.querySelector('#gameContainer')
 
-const GAME_FIELD_SIZE = 60
+const GAME_FIELD_SIZE = 70
 const MIN_ENEMY_WIDTH = GAME_FIELD_SIZE * 0.1
 const MAX_ENEMY_WIDTH = GAME_FIELD_SIZE * 0.3
 const CURRENT_ENEMY_ARRAY = []
@@ -31,34 +31,37 @@ function getAmountToSubtract(yValue) {
 
 const generatePlanePixelArray = () => {
      const planePixelArray = [
-          [planeCenterPixel.y, planeCenterPixel.x],
-          [planeCenterPixel.y + 1, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 2, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 3, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 4, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 5, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 6, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 7, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 8, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 9, planeCenterPixel.x + 0],
-          [planeCenterPixel.y + 8, planeCenterPixel.x + 1],
-          [planeCenterPixel.y + 8, planeCenterPixel.x + 2],
-          [planeCenterPixel.y + 8, planeCenterPixel.x + 3],
-          [planeCenterPixel.y + 8, planeCenterPixel.x + 4],
-          [planeCenterPixel.y + 2, planeCenterPixel.x + 1],
-          [planeCenterPixel.y + 3, planeCenterPixel.x + 1],
-          [planeCenterPixel.y + 4, planeCenterPixel.x + 1],
-          [planeCenterPixel.y + 5, planeCenterPixel.x + 1],
-          [planeCenterPixel.y + 6, planeCenterPixel.x + 1],
-          [planeCenterPixel.y + 7, planeCenterPixel.x + 1],
-          [planeCenterPixel.y + 7, planeCenterPixel.x + 2],
+          { y: planeCenterPixel.y, x: planeCenterPixel.x },
+          { y: planeCenterPixel.y + 1, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 2, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 3, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 4, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 5, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 6, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 7, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 8, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 9, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 8, x: planeCenterPixel.x + 1 },
+          { y: planeCenterPixel.y + 8, x: planeCenterPixel.x + 2 },
+          { y: planeCenterPixel.y + 8, x: planeCenterPixel.x + 3 },
+          { y: planeCenterPixel.y + 2, x: planeCenterPixel.x + 1 },
+          { y: planeCenterPixel.y + 1, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 2, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 3, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 4, x: planeCenterPixel.x + 0 },
+          { y: planeCenterPixel.y + 7, x: planeCenterPixel.x + 1 },
+          { y: planeCenterPixel.y + 7, x: planeCenterPixel.x + 2 },
      ]
 
      planePixelArray.forEach((pixel) => {
-          const amountToSubtract = getAmountToSubtract(pixel[1])
-          const leftSidePixel = [pixel[0], pixel[1] - amountToSubtract * 2]
+          const amountToSubtract = getAmountToSubtract(pixel.x)
+          const leftSidePixel = {
+               y: pixel.y,
+               x: pixel.x - amountToSubtract * 2,
+          }
           planePixelArray.push(leftSidePixel)
      })
+
      return planePixelArray
 }
 
@@ -74,7 +77,7 @@ const generatePlane = () => {
 
      planePixelArray.forEach((pixel) => {
           let spawnPlane = document.querySelector(
-               `[data-y='${pixel[0]}'][data-x="${pixel[1]}"]`
+               `[data-y='${pixel.y}'][data-x="${pixel.x}"]`
           )
           spawnPlane.classList.add('plane')
      })
@@ -87,14 +90,14 @@ const moveThePlane = (e) => {
 
      if (e.key === 'ArrowLeft') {
           planeCenterPixel.x--
-          if (planeCenterPixel.x === 4) {
+          if (planeCenterPixel.x === 3) {
                planeCenterPixel.x++
                return
           }
           generatePlane()
      } else if (e.key === 'ArrowRight') {
           planeCenterPixel.x++
-          if (planeCenterPixel.x === GAME_FIELD_SIZE - 3) {
+          if (planeCenterPixel.x === GAME_FIELD_SIZE - 2) {
                planeCenterPixel.x--
                return
           }
@@ -163,6 +166,9 @@ const drawEnemies = (interval) => {
 const checkForCollision = () => {
      const collisionPixel = document.querySelectorAll('.plane.enemy')
      if (collisionPixel.length) {
+          collisionPixel.forEach((pixel) => {
+               pixel.style.backgroundColor = 'red'
+          })
           return true
      }
 }
@@ -172,14 +178,16 @@ const checkForCollision = () => {
 const moveEnemies = () => {
      const interval = setInterval(() => {
           drawEnemies()
+
           if (checkForCollision()) {
                clearInterval(interval)
+               stopTheGame()
           }
-     }, 50)
+     }, 20)
 }
 
 const generateEnemies = () => {
-     setInterval(generateEnemyPixelArray, 2000)
+     setInterval(generateEnemyPixelArray, 600)
 }
 
 // utility functions
@@ -196,12 +204,24 @@ function getRandomInt(min, max) {
      return Math.floor(Math.random() * (max - min + 1) + min)
 }
 
+// add event listener
+const addMoveEvent = () => {
+     document.addEventListener('keydown', moveThePlane, true)
+}
+
+// remove event listener
+
+const stopTheGame = () => {
+     document.removeEventListener('keydown', moveThePlane, true)
+     console.log('dab')
+}
+
 // game initialization
 
 const game = () => {
      generateGameField()
-     document.addEventListener('keydown', moveThePlane)
      generatePlane()
+     addMoveEvent()
      generateEnemies()
      moveEnemies()
 }
