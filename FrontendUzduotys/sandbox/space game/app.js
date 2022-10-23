@@ -118,7 +118,6 @@ const generateEnemyPixelArray = () => {
      const enemyPixelArray = []
 
      enemyPixelArray.maxHeight = height
-     // enemyPixelArray.id = Math.floor(Math.random() * 10000)
 
      for (let i = 0; i < width; i++) {
           for (let j = 0; j < height; j++) {
@@ -133,7 +132,7 @@ const generateEnemyPixelArray = () => {
      return enemyPixelArray
 }
 
-const drawEnemies = (interval) => {
+const drawEnemies = () => {
      const previousEnemyCells = document.querySelectorAll('.enemy')
      previousEnemyCells.forEach((el) => {
           el.classList.remove('enemy')
@@ -213,7 +212,6 @@ const addMoveEvent = () => {
 
 const stopTheGame = () => {
      document.removeEventListener('keydown', moveThePlane, true)
-     console.log('dab')
 }
 
 // game initialization
